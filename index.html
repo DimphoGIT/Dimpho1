@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>ARIS | Academic Risk Intelligence System — Professional Suite</title>
+    <title>ARIS | Academic Risk Intelligence System — Complete Suite</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -17,28 +17,21 @@
             --primary: #4f46e5;
             --primary-dark: #4338ca;
             --primary-light: #eef2ff;
-            --primary-glow: rgba(79, 70, 229, 0.2);
+            --primary-glow: rgba(79, 70, 229, 0.15);
             --secondary: #06b6d4;
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
             --dark: #0f172a;
-            --dark-muted: #1e293b;
             --gray: #64748b;
-            --gray-light: #94a3b8;
             --gray-bg: #f1f5f9;
             --white: #ffffff;
             --border: #e2e8f0;
-            --shadow-xs: 0 1px 2px rgba(0,0,0,0.03);
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.03);
-            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.01);
-            --radius-sm: 8px;
-            --radius-md: 12px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.03);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.05);
             --radius-lg: 16px;
             --radius-xl: 24px;
-            --radius-2xl: 32px;
         }
 
         body {
@@ -48,45 +41,39 @@
             color: var(--dark);
         }
 
-        /* Login Premium */
+        /* Login Screen */
         .login-container {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 1.5rem;
-            position: relative;
-            background: radial-gradient(ellipse at 30% 40%, rgba(79,70,229,0.08) 0%, transparent 60%);
+            background: radial-gradient(ellipse at 30% 40%, rgba(79, 70, 229, 0.08) 0%, transparent 60%);
         }
-
         .login-card {
             background: var(--white);
-            border-radius: var(--radius-2xl);
+            border-radius: var(--radius-xl);
             padding: 2.5rem;
             width: 100%;
-            max-width: 480px;
-            box-shadow: var(--shadow-xl);
-            border: 1px solid rgba(255,255,255,0.5);
-            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            max-width: 460px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+            animation: slideUp 0.4s ease;
         }
-
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .login-icon {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            width: 64px;
-            height: 64px;
-            border-radius: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1rem;
         }
-        .login-icon i { font-size: 1.8rem; color: white; }
-
+        .login-icon i { font-size: 1.6rem; color: white; }
         .role-selector {
             display: flex;
             gap: 0.5rem;
@@ -110,10 +97,7 @@
             color: var(--primary);
             box-shadow: var(--shadow-sm);
         }
-
-        .input-group {
-            margin-bottom: 1rem;
-        }
+        .input-group { margin-bottom: 1rem; }
         .input-group input {
             width: 100%;
             padding: 14px 18px;
@@ -127,7 +111,6 @@
             border-color: var(--primary);
             box-shadow: 0 0 0 3px var(--primary-light);
         }
-
         .login-btn {
             width: 100%;
             padding: 14px;
@@ -141,10 +124,10 @@
         }
         .login-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
-        /* App Container */
-        .app-container { display: none; }
+        /* App Container - FULL WIDTH */
+        .app-container { display: none; width: 100%; }
 
-        /* Sidebar Premium */
+        /* Sidebar - Fixed Width */
         .sidebar {
             width: 280px;
             background: var(--white);
@@ -153,13 +136,12 @@
             left: 0;
             top: 0;
             bottom: 0;
-            padding: 1.8rem;
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             z-index: 100;
         }
-
         .sidebar-header {
             display: flex;
             align-items: center;
@@ -177,24 +159,19 @@
         }
         .sidebar-logo i { color: white; font-size: 1.2rem; }
         .sidebar-title { font-weight: 800; font-size: 1.3rem; background: linear-gradient(135deg, var(--dark), var(--primary)); background-clip: text; -webkit-background-clip: text; color: transparent; }
-
         .nav-item {
             display: flex;
             align-items: center;
             gap: 12px;
             padding: 12px 16px;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             color: var(--gray);
             cursor: pointer;
             transition: all 0.2s;
             margin-bottom: 4px;
             font-weight: 500;
         }
-        .nav-item:hover, .nav-item.active {
-            background: var(--primary-light);
-            color: var(--primary);
-        }
-
+        .nav-item:hover, .nav-item.active { background: var(--primary-light); color: var(--primary); }
         .sidebar-footer {
             border-top: 1px solid var(--border);
             padding-top: 1rem;
@@ -204,20 +181,20 @@
             align-items: center;
             gap: 12px;
             padding: 10px 16px;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             color: var(--gray);
             cursor: pointer;
             transition: all 0.2s;
         }
         .footer-action:hover { background: var(--gray-bg); color: var(--danger); }
 
-        /* Main Content */
+        /* Main Content - FULL WIDTH (margin-left for sidebar) */
         .main-content {
             margin-left: 280px;
             padding: 2rem;
+            width: calc(100% - 280px);
+            min-height: 100vh;
         }
-
-        /* Top Bar */
         .top-bar {
             display: flex;
             justify-content: flex-end;
@@ -238,8 +215,6 @@
             border: 1px solid var(--border);
         }
         .icon-btn:hover { background: var(--primary); color: white; transform: translateY(-2px); }
-
-        /* Dashboard Hero */
         .hero-welcome {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: var(--radius-xl);
@@ -247,8 +222,6 @@
             margin-bottom: 2rem;
             color: white;
         }
-
-        /* Stats Grid */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -263,50 +236,39 @@
             border: 1px solid var(--border);
         }
         .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-
-        /* Cards */
         .card {
             background: var(--white);
             border-radius: var(--radius-xl);
             padding: 1.5rem;
             margin-bottom: 1.5rem;
             border: 1px solid var(--border);
+            width: 100%;
         }
-
         .selector-group {
             display: flex;
             gap: 1rem;
             margin-bottom: 1.5rem;
             flex-wrap: wrap;
         }
-        .selector-group select {
+        .selector-group select, .selector-group input {
             padding: 10px 16px;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             border: 1px solid var(--border);
             background: var(--white);
             font-weight: 500;
         }
-
         table { width: 100%; border-collapse: collapse; }
         th, td { padding: 14px 12px; text-align: left; border-bottom: 1px solid var(--border); }
-        th { font-weight: 700; color: var(--gray); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
-
+        th { font-weight: 700; color: var(--gray); font-size: 0.75rem; text-transform: uppercase; }
         .mark-input {
             width: 70px;
             padding: 8px;
             border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
+            border-radius: 8px;
             text-align: center;
         }
-
-        .progress-bar {
-            background: var(--gray-bg);
-            border-radius: 20px;
-            height: 8px;
-            overflow: hidden;
-        }
+        .progress-bar { background: var(--gray-bg); border-radius: 20px; height: 8px; overflow: hidden; }
         .progress-fill { height: 100%; border-radius: 20px; transition: width 0.3s; }
-
         .badge {
             padding: 4px 12px;
             border-radius: 30px;
@@ -316,17 +278,27 @@
         .badge-success { background: #d1fae5; color: #065f46; }
         .badge-warning { background: #fef3c7; color: #92400e; }
         .badge-danger { background: #fee2e2; color: #991b1b; }
-
-        .consultation-card, .resource-card {
+        .badge-info { background: var(--primary-light); color: var(--primary); }
+        .intervention-card, .resource-card, .consultation-card {
             background: var(--gray-bg);
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             padding: 1rem;
             margin-bottom: 0.8rem;
             transition: all 0.2s;
-            cursor: pointer;
         }
-        .consultation-card:hover, .resource-card:hover { background: var(--primary-light); transform: translateX(4px); }
-
+        .intervention-card:hover, .resource-card:hover, .consultation-card:hover { background: var(--primary-light); transform: translateX(4px); }
+        .btn-sm {
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        .btn-accept { background: var(--success); color: white; }
+        .btn-reject { background: var(--danger); color: white; }
+        .btn-primary { background: var(--primary); color: white; padding: 8px 16px; border-radius: 20px; border: none; cursor: pointer; }
+        .btn-outline { background: transparent; border: 1px solid var(--primary); color: var(--primary); padding: 8px 16px; border-radius: 20px; cursor: pointer; }
         .about-section {
             background: linear-gradient(145deg, var(--white), var(--gray-bg));
             border-radius: var(--radius-xl);
@@ -334,7 +306,6 @@
             margin-top: 1.5rem;
             border: 1px solid var(--border);
         }
-
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -348,17 +319,46 @@
             justify-content: center;
             z-index: 1000;
         }
-        .profile-modal {
+        .profile-modal, .modal-content {
             background: white;
             border-radius: var(--radius-xl);
             padding: 2rem;
             width: 90%;
-            max-width: 380px;
-            text-align: center;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
         }
-
-        .hidden { display: none; }
         .empty-state { text-align: center; padding: 2rem; color: var(--gray); }
+        .user-card, .grade-card, .subject-card {
+            padding: 0.8rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .nested-structure {
+            margin-left: 1.5rem;
+            border-left: 2px solid var(--primary-light);
+            padding-left: 1rem;
+        }
+        .structure-item {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            background: var(--gray-bg);
+            border-radius: var(--radius-lg);
+        }
+        .flex-between { display: flex; justify-content: space-between; align-items: center; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .w-100 { width: 100%; }
+        
+        @media (max-width: 768px) {
+            .sidebar { width: 80px; padding: 1rem; }
+            .sidebar-title, .nav-item span, .sidebar-footer .footer-action span { display: none; }
+            .main-content { margin-left: 80px; width: calc(100% - 80px); padding: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -366,7 +366,7 @@
         <div class="login-card">
             <div class="login-icon"><i class="fas fa-graduation-cap"></i></div>
             <h2 style="text-align:center; font-size:1.8rem;">ARIS</h2>
-            <p style="text-align:center; color:var(--gray); margin-bottom:1rem;">Intelligent Academic Risk System</p>
+            <p style="text-align:center; color:var(--gray); margin-bottom:1rem;">Academic Risk Intelligence System</p>
             <div class="role-selector" id="roleSelector">
                 <div class="role-option active" data-role="admin">👑 Admin</div>
                 <div class="role-option" data-role="teacher">📖 Teacher</div>
@@ -382,15 +382,12 @@
     <div id="appContainer" class="app-container">
         <div class="sidebar">
             <div>
-                <div class="sidebar-header">
-                    <div class="sidebar-logo"><i class="fas fa-graduation-cap"></i></div>
-                    <span class="sidebar-title">ARIS</span>
-                </div>
+                <div class="sidebar-header"><div class="sidebar-logo"><i class="fas fa-graduation-cap"></i></div><span class="sidebar-title">ARIS</span></div>
                 <div id="navItems"></div>
             </div>
             <div class="sidebar-footer">
-                <div class="footer-action" onclick="openSettings()"><i class="fas fa-cog"></i> Settings</div>
-                <div class="footer-action" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</div>
+                <div class="footer-action" onclick="openSettings()"><i class="fas fa-cog"></i><span> Settings</span></div>
+                <div class="footer-action" onclick="logout()"><i class="fas fa-sign-out-alt"></i><span> Logout</span></div>
             </div>
         </div>
         <div class="main-content">
@@ -403,31 +400,23 @@
     </div>
 
     <script>
-        // ============ DATA MODEL ============
-        let users = [
-            { id: 1, name: "Dr. Sarah Chen", email: "admin@aris.com", role: "admin", status: "active", grade: null, avatar: "👑" },
-            { id: 2, name: "Mr. James Wilson", email: "teacher@aris.com", role: "teacher", status: "active", grade: null, subjects: [1, 2], avatar: "📖" },
-            { id: 3, name: "Thabo Nkosi", email: "learner@aris.com", role: "learner", status: "active", grade: 11, avatar: "🎓" },
-            { id: 4, name: "Priya Patel", email: "priya@learner.com", role: "learner", status: "active", grade: 11, avatar: "🎓" },
-            { id: 5, name: "Emma Williams", email: "emma@learner.com", role: "learner", status: "active", grade: 11, avatar: "🎓" }
-        ];
-
+        // ============ COMPLETE DATA MODEL WITH GRADE FLEXIBILITY ============
+        let grades = [10, 11, 12];
+        
         let subjects = [
             { id: 1, name: "Mathematics", grade: 11 },
             { id: 2, name: "Physical Sciences", grade: 11 },
-            { id: 3, name: "English HL", grade: 11 }
+            { id: 3, name: "English Home Language", grade: 11 }
         ];
 
-        // Assessments under each subject
         let assessments = [
             { id: 101, subjectId: 1, name: "Test 1", totalMarks: 50, weight: 30 },
             { id: 102, subjectId: 1, name: "Test 2", totalMarks: 50, weight: 30 },
             { id: 103, subjectId: 1, name: "Exam", totalMarks: 100, weight: 40 },
             { id: 201, subjectId: 2, name: "Test 1", totalMarks: 40, weight: 40 },
-            { id: 202, subjectId: 2, name: "Exam", totalMarks: 100, weight: 60 }
+            { id: 301, subjectId: 3, name: "Test 1", totalMarks: 50, weight: 50 }
         ];
 
-        // Questions per assessment (with topics)
         let questions = [
             { id: 1, assessmentId: 101, name: "Q1", marks: 10, topic: "Algebra" },
             { id: 2, assessmentId: 101, name: "Q2", marks: 15, topic: "Geometry" },
@@ -436,47 +425,63 @@
             { id: 5, assessmentId: 102, name: "Q1", marks: 12, topic: "Algebra" },
             { id: 6, assessmentId: 102, name: "Q2", marks: 18, topic: "Trigonometry" },
             { id: 7, assessmentId: 201, name: "Q1", marks: 10, topic: "Mechanics" },
-            { id: 8, assessmentId: 201, name: "Q2", marks: 15, topic: "Waves" }
+            { id: 8, assessmentId: 201, name: "Q2", marks: 15, topic: "Waves" },
+            { id: 9, assessmentId: 301, name: "Q1", marks: 20, topic: "Comprehension" },
+            { id: 10, assessmentId: 301, name: "Q2", marks: 30, topic: "Essay" }
         ];
 
-        // Student marks: studentId -> assessmentId -> questionId -> score
+        // Users with grade association
+        let users = [
+            { id: 1, name: "Dr. Sarah Chen", email: "admin@aris.com", role: "admin", status: "active", grade: null, subjects: [] },
+            { id: 2, name: "Mr. James Wilson", email: "teacher@aris.com", role: "teacher", status: "active", grade: null, subjects: [1, 2] },
+            { id: 3, name: "Thabo Nkosi", email: "learner@aris.com", role: "learner", status: "active", grade: 11, subjects: [1, 2, 3] },
+            { id: 4, name: "Priya Patel", email: "priya@learner.com", role: "learner", status: "active", grade: 11, subjects: [1, 2, 3] },
+            { id: 5, name: "Emma Williams", email: "emma@learner.com", role: "learner", status: "active", grade: 11, subjects: [1, 2, 3] }
+        ];
+
+        // studentMarks[studentId][assessmentId][questionId] = score
         let studentMarks = {
-            3: { // Thabo
-                101: { 1: 4, 2: 6, 3: 5, 4: 7 },
-                102: { 5: 5, 6: 8 },
-                201: { 7: 3, 8: 6 }
-            },
-            4: { // Priya
-                101: { 1: 8, 2: 12, 3: 9, 4: 13 },
-                102: { 5: 10, 6: 15 },
-                201: { 7: 8, 8: 12 }
-            },
-            5: { // Emma
-                101: { 1: 6, 2: 9, 3: 7, 4: 10 },
-                102: { 5: 7, 6: 11 },
-                201: { 7: 5, 8: 9 }
-            }
+            3: { 101: { 1: 4, 2: 6, 3: 5, 4: 7 }, 102: { 5: 5, 6: 8 }, 201: { 7: 3, 8: 6 }, 301: { 9: 12, 10: 18 } },
+            4: { 101: { 1: 8, 2: 12, 3: 9, 4: 13 }, 102: { 5: 10, 6: 15 }, 201: { 7: 8, 8: 12 }, 301: { 9: 16, 10: 25 } },
+            5: { 101: { 1: 6, 2: 9, 3: 7, 4: 10 }, 102: { 5: 7, 6: 11 }, 201: { 7: 5, 8: 9 }, 301: { 9: 14, 10: 22 } }
         };
 
-        let consultations = [
-            { id: 1, learnerId: 3, teacherId: 2, subjectId: 1, topic: "Algebra Support", message: "Let's review quadratic equations", status: "pending" }
+        // Resource Recommendations with 3-step approval workflow
+        let resourceRecommendations = [
+            { id: 1, teacherId: 2, learnerId: 3, resourceId: 1, message: "Thabo needs extra Algebra practice", status: "pending_admin", createdAt: "2026-05-15" }
         ];
-
+        
         let resources = [
-            { id: 1, title: "🏫 School Tutoring Program", description: "Free peer tutoring every Tue/Thu 3-5pm in library.", type: "on-campus", targetTopic: "Algebra" },
-            { id: 2, title: "👨‍🏫 Local Tutors Network", description: "Qualified math tutors near you — subsidized rates available.", type: "community", targetTopic: "General" },
-            { id: 3, title: "📚 Khan Academy - Algebra", description: "Interactive video lessons and practice problems.", type: "digital", targetTopic: "Algebra" }
+            { id: 1, title: "🏫 School-based Tutoring Program", description: "Free peer tutoring every Tue/Thu 3-5pm in library.", type: "school-based" },
+            { id: 2, title: "👨‍🏫 Local Tutors Network", description: "Qualified math tutors near you — subsidized rates.", type: "community" },
+            { id: 3, title: "📚 Khan Academy - Algebra", description: "Interactive video lessons and practice problems.", type: "digital" }
         ];
 
-        let adminRequests = []; // Resource requests from teachers
+        // Consultations (meeting-based, separate from recommendations)
+        let consultations = [
+            { id: 1, teacherId: 2, learnerId: 3, topic: "Algebra Help Session", message: "Let's meet to review quadratic equations", status: "pending", date: "2026-05-20" }
+        ];
 
         let currentUser = null;
+        let teacherSelectedAssessment = 101;
 
-        // Helper functions
-        function getLearners() { return users.filter(u => u.role === 'learner' && u.status === 'active' && u.grade === 11); }
+        // Helper Functions
+        function getLearners() { return users.filter(u => u.role === 'learner' && u.status === 'active'); }
+        function getTeachers() { return users.filter(u => u.role === 'teacher' && u.status === 'active'); }
         function getSubjectsByGrade(grade) { return subjects.filter(s => s.grade === grade); }
-        function getAssessmentsBySubject(subjectId) { return assessments.filter(a => a.subjectId === subjectId); }
+        function getSubjectsByTeacher(teacherId) { const t = users.find(u => u.id === teacherId); return subjects.filter(s => t?.subjects?.includes(s.id)); }
         function getQuestionsByAssessment(assessmentId) { return questions.filter(q => q.assessmentId === assessmentId); }
+        function getAssessmentsBySubject(subjectId) { return assessments.filter(a => a.subjectId === subjectId); }
+        
+        // Calculate total marks for a learner (real-time sync)
+        function calculateLearnerTotalMarks(learnerId, assessmentId) {
+            const assQuestions = getQuestionsByAssessment(assessmentId);
+            let total = 0;
+            assQuestions.forEach(q => {
+                total += studentMarks[learnerId]?.[assessmentId]?.[q.id] || 0;
+            });
+            return total;
+        }
 
         function handleLogin() {
             const email = document.getElementById('loginEmail').value;
@@ -485,20 +490,20 @@
             if (user) {
                 currentUser = user;
                 document.getElementById('loginScreen').style.display = 'none';
-                document.getElementById('appContainer').style.display = 'flex';
+                document.getElementById('appContainer').style.display = 'block';
                 renderSidebar();
                 renderDashboard();
             } else alert('Invalid credentials');
         }
 
         function logout() { currentUser = null; document.getElementById('loginScreen').style.display = 'flex'; document.getElementById('appContainer').style.display = 'none'; }
-        function showNotifications() { alert("🔔 Notifications\n• New consultation requests\n• Resource recommendations pending"); }
-        function openSettings() { alert("⚙️ Settings\n• Theme: Professional\n• Notifications: On\n• Language: English\n• Grade Focus: 11"); }
-
+        function showNotifications() { alert("🔔 Notifications\n• Resource recommendations pending approval\n• New consultation requests"); }
+        function openSettings() { alert("⚙️ Settings\n• Theme: Professional\n• Notifications: On\n• Grade Levels: 10-12"); }
+        
         function openProfileModal() {
             const modal = document.createElement('div');
             modal.className = 'modal-overlay';
-            modal.innerHTML = `<div class="profile-modal"><div style="background:linear-gradient(135deg,var(--primary),var(--secondary)); width:70px;height:70px;border-radius:35px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;"><i class="fas fa-user-astronaut" style="font-size:2rem;color:white;"></i></div><h3>${currentUser.name}</h3><p style="color:var(--gray);">${currentUser.email}</p><p style="margin:1rem 0;">${currentUser.role === 'teacher' ? 'Mathematics & Sciences Educator' : currentUser.role === 'learner' ? `Grade ${currentUser.grade} Student` : 'System Administrator'}</p><button onclick="this.closest('.modal-overlay').remove()" style="padding:10px 24px;background:var(--primary);border:none;border-radius:40px;color:white;cursor:pointer;">Close</button></div>`;
+            modal.innerHTML = `<div class="profile-modal"><div style="background:linear-gradient(135deg,var(--primary),var(--secondary)); width:70px;height:70px;border-radius:35px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;"><i class="fas fa-user-astronaut" style="font-size:2rem;color:white;"></i></div><h3>${currentUser.name}</h3><p style="color:var(--gray);">${currentUser.email}</p><p>${currentUser.role === 'teacher' ? `Teaching: ${getSubjectsByTeacher(currentUser.id).map(s=>s.name).join(', ') || 'None'}` : currentUser.role === 'learner' ? `Grade ${currentUser.grade} Student` : 'System Administrator'}</p><button onclick="this.closest('.modal-overlay').remove()" style="margin-top:1rem;padding:10px 24px;background:var(--primary);border:none;border-radius:40px;color:white;cursor:pointer;">Close</button></div>`;
             document.body.appendChild(modal);
             modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
         }
@@ -508,6 +513,8 @@
             if (currentUser.role === 'admin') nav = [
                 { icon: "fa-chart-line", label: "Dashboard", id: "dashboard" },
                 { icon: "fa-users", label: "User Management", id: "users" },
+                { icon: "fa-sitemap", label: "Subject Structure", id: "subjects" },
+                { icon: "fa-check-double", label: "Resource Approvals", id: "approvals" },
                 { icon: "fa-calendar-check", label: "Consultations", id: "consultations" },
                 { icon: "fa-hand-holding-heart", label: "Resources", id: "resources" }
             ];
@@ -515,15 +522,17 @@
                 { icon: "fa-chart-line", label: "Dashboard", id: "dashboard" },
                 { icon: "fa-pen-ruler", label: "Mark Entry", id: "marks" },
                 { icon: "fa-chart-simple", label: "Risk Analysis", id: "risk" },
-                { icon: "fa-paper-plane", label: "Send Consultation", id: "sendConsult" },
-                { icon: "fa-calendar-check", label: "Consultations", id: "consultations" },
+                { icon: "fa-paper-plane", label: "Recommend Resource", id: "recommendResource" },
+                { icon: "fa-calendar-plus", label: "Schedule Consultation", id: "scheduleConsult" },
+                { icon: "fa-inbox", label: "My Messages", id: "myMessages" },
                 { icon: "fa-hand-holding-heart", label: "Resources", id: "resources" }
             ];
             else nav = [
                 { icon: "fa-chart-line", label: "Dashboard", id: "dashboard" },
-                { icon: "fa-chart-simple", label: "Subject Performance", id: "subjects" },
+                { icon: "fa-chart-simple", label: "My Performance", id: "performance" },
+                { icon: "fa-gift", label: "Recommended Resources", id: "myResources" },
                 { icon: "fa-calendar-check", label: "Consultations", id: "consultations" },
-                { icon: "fa-hand-holding-heart", label: "Interventions", id: "resources" }
+                { icon: "fa-hand-holding-heart", label: "Resources", id: "resources" }
             ];
             document.getElementById('navItems').innerHTML = nav.map(item => `<div class="nav-item" onclick="switchTab('${item.id}')"><i class="fas ${item.icon}"></i><span>${item.label}</span></div>`).join('');
         }
@@ -537,70 +546,176 @@
         }
         function renderDashboard() { switchTab('dashboard'); }
 
-        // ============ ADMIN ============
+        // ============ ADMIN PANEL ============
         function renderAdminTab(tab) {
             const content = document.getElementById('dynamicContent');
             if (tab === 'dashboard') {
-                content.innerHTML = `
-                    <div class="hero-welcome"><h2>👋 Welcome, ${currentUser.name.split(' ')[0]}</h2><p>ARIS is actively monitoring ${getLearners().length} Grade 11 learners across ${subjects.length} subjects.</p></div>
-                    <div class="stats-grid"><div class="stat-card"><i class="fas fa-users" style="font-size:1.8rem;color:var(--primary)"></i><h2>${users.filter(u=>u.status==='active').length}</h2><p>Active Users</p></div><div class="stat-card"><i class="fas fa-chalkboard-user"></i><h2>${getLearners().length}</h2><p>Grade 11 Students</p></div><div class="stat-card"><i class="fas fa-calendar-check"></i><h2>${consultations.length}</h2><p>Consultations</p></div></div>
-                    <div class="about-section"><h3><i class="fas fa-graduation-cap"></i> About ARIS</h3><p>The Academic Risk Intelligence System identifies learning gaps at the per-question level across multiple subjects and assessments, enabling targeted intervention. Version 2.0 | Grade 11 Focus</p></div>
-                `;
+                content.innerHTML = `<div class="hero-welcome"><h2>👋 Welcome, ${currentUser.name.split(' ')[0]}</h2><p>ARIS is actively monitoring ${getLearners().length} learners across ${subjects.length} subjects and ${grades.length} grade levels.</p></div>
+                <div class="stats-grid"><div class="stat-card"><i class="fas fa-users" style="font-size:1.8rem;color:var(--primary)"></i><h2>${users.filter(u=>u.status==='active').length}</h2><p>Active Users</p></div>
+                <div class="stat-card"><i class="fas fa-chalkboard-user"></i><h2>${getLearners().length}</h2><p>Students</p></div>
+                <div class="stat-card"><i class="fas fa-chalkboard"></i><h2>${subjects.length}</h2><p>Subjects</p></div>
+                <div class="stat-card"><i class="fas fa-clock"></i><h2>${resourceRecommendations.filter(r=>r.status==='pending_admin').length}</h2><p>Pending Approvals</p></div></div>
+                <div class="about-section"><h3>📊 ARIS Admin Console</h3><p>Manage users, approve resource recommendations, and structure the curriculum hierarchy.</p></div>`;
             } else if (tab === 'users') {
-                content.innerHTML = `<div class="card"><h3>User Directory</h3><table><thead><tr><th>Name</th><th>Role</th><th>Grade</th><th>Status</th><th>Action</th></tr></thead><tbody>${users.map(u => `<tr><td>${u.name}</td><td>${u.role}</td><td>${u.grade || '-'}</td><td><span class="badge ${u.status==='active'?'badge-success':'badge-danger'}">${u.status}</span></td><td><button onclick="toggleUserStatus(${u.id})" class="badge-warning" style="border:none;padding:4px 12px;border-radius:20px;cursor:pointer;">${u.status==='active'?'Deactivate':'Activate'}</button></td></tr>`).join('')}</tbody></table></div>`;
+                content.innerHTML = `<div class="card"><h3>User Management</h3><div id="adminUsersList"></div><button class="btn-primary" onclick="showAddUserModal()" style="margin-top:1rem;">+ Add New User</button></div>`;
+                renderAdminUsers();
+            } else if (tab === 'subjects') {
+                content.innerHTML = `<div class="card"><h3>📚 Subject Structure: Grade → Subject → Assessment → Question → Topic</h3><div id="adminSubjectsStructure"></div><button class="btn-primary" onclick="showAddGradeModal()" style="margin-top:1rem;">+ Add Grade Level</button> <button class="btn-outline" onclick="showAddSubjectModal()">+ Add Subject</button></div>`;
+                renderAdminSubjectStructure();
+            } else if (tab === 'approvals') {
+                const pendingRecs = resourceRecommendations.filter(r => r.status === 'pending_admin');
+                content.innerHTML = `<div class="card"><h3>✅ Resource Recommendation Approvals</h3><div id="approvalsList">${pendingRecs.map(r => `<div class="intervention-card"><strong>From: ${users.find(u=>u.id===r.teacherId)?.name}</strong><br>For: ${users.find(u=>u.id===r.learnerId)?.name}<br>Resource: ${resources.find(res=>res.id===r.resourceId)?.title}<br>Message: ${r.message}<br><button onclick="approveResource(${r.id})" class="btn-sm btn-accept">✓ Approve & Send to Learner</button> <button onclick="rejectResource(${r.id})" class="btn-sm btn-reject">✗ Reject</button></div>`).join('') || '<div class="empty-state">No pending resource recommendations</div>'}</div>`;
+                document.getElementById('approvalsList').innerHTML = pendingRecs.map(r => `<div class="intervention-card"><strong>From: ${users.find(u=>u.id===r.teacherId)?.name}</strong><br>For: ${users.find(u=>u.id===r.learnerId)?.name}<br>Resource: ${resources.find(res=>res.id===r.resourceId)?.title}<br>Message: ${r.message}<br><button onclick="approveResource(${r.id})" class="btn-sm btn-accept">✓ Approve & Send</button> <button onclick="rejectResource(${r.id})" class="btn-sm btn-reject">✗ Reject</button></div>`).join('') || '<div class="empty-state">No pending recommendations</div>';
             } else if (tab === 'consultations') {
-                content.innerHTML = `<div class="card"><h3>All Consultations</h3>${consultations.map(c => `<div class="consultation-card"><strong>${users.find(u=>u.id===c.learnerId)?.name}</strong><br>Topic: ${c.topic}<br>Status: ${c.status}</div>`).join('') || '<div class="empty-state">No consultations yet</div>'}</div>`;
-            } else if (tab === 'resources') renderResources(content);
+                content.innerHTML = `<div class="card"><h3>All Consultations</h3>${consultations.map(c => `<div class="consultation-card"><strong>${users.find(u=>u.id===c.teacherId)?.name} → ${users.find(u=>u.id===c.learnerId)?.name}</strong><br>Topic: ${c.topic}<br>Message: ${c.message}<br>Status: ${c.status}</div>`).join('') || '<div class="empty-state">No consultations</div>'}</div>`;
+            } else if (tab === 'resources') {
+                content.innerHTML = `<div class="card"><h3>Resources Library</h3>${resources.map(r => `<div class="resource-card"><strong>${r.title}</strong><br>${r.description}<br><span class="badge-info">${r.type}</span></div>`).join('')}</div>`;
+            }
         }
 
-        // ============ TEACHER ============
-        let teacherSelectedSubject = 1;
-        let teacherSelectedAssessment = 101;
+        function renderAdminUsers() {
+            const container = document.getElementById('adminUsersList');
+            if (!container) return;
+            container.innerHTML = users.map(u => `<div class="user-card"><div><strong>${u.name}</strong><br><small>${u.email}</small><br><span class="badge ${u.status==='active'?'badge-success':'badge-danger'}">${u.status}</span> | Role: ${u.role} ${u.role==='teacher' ? `| Subjects: ${getSubjectsByTeacher(u.id).map(s=>s.name).join(', ') || 'None'}` : u.role==='learner' ? `| Grade: ${u.grade}` : ''}</div><div><button onclick="toggleUserStatus(${u.id})" class="btn-sm" style="background:${u.status==='active'?'var(--warning)':'var(--success)'};color:white;">${u.status==='active'?'Deactivate':'Activate'}</button> ${u.role === 'teacher' ? `<button onclick="editTeacherSubjects(${u.id})" class="btn-sm" style="background:var(--primary);color:white;">Assign Subjects</button>` : ''}</div></div>`).join('');
+        }
 
+        function renderAdminSubjectStructure() {
+            const container = document.getElementById('adminSubjectsStructure');
+            if (!container) return;
+            let html = '';
+            grades.forEach(grade => {
+                const gradeSubjects = subjects.filter(s => s.grade === grade);
+                html += `<div class="grade-card"><strong><i class="fas fa-graduation-cap"></i> Grade ${grade}</strong>`;
+                gradeSubjects.forEach(sub => {
+                    const subjectAssessments = getAssessmentsBySubject(sub.id);
+                    html += `<div class="nested-structure"><div class="structure-item"><strong>📘 ${sub.name}</strong>`;
+                    subjectAssessments.forEach(ass => {
+                        const assQuestions = getQuestionsByAssessment(ass.id);
+                        html += `<div class="nested-structure"><div><strong>📝 ${ass.name}</strong> (${ass.totalMarks} marks, ${ass.weight}%)`;
+                        assQuestions.forEach(q => {
+                            html += `<div class="nested-structure"><div><span class="badge-info">❓ ${q.name}</span> — ${q.marks} marks — Topic: <strong>${q.topic}</strong></div></div>`;
+                        });
+                        html += `</div></div>`;
+                    });
+                    html += `</div></div>`;
+                });
+                html += `</div>`;
+            });
+            container.innerHTML = html || '<div class="empty-state">No subjects configured. Add grade levels and subjects.</div>';
+        }
+
+        function editTeacherSubjects(teacherId) {
+            const teacher = users.find(u => u.id === teacherId);
+            const subjectList = subjects.map(s => `<label><input type="checkbox" value="${s.id}" ${teacher.subjects?.includes(s.id) ? 'checked' : ''}> ${s.name} (Grade ${s.grade})</label><br>`).join('');
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `<div class="modal-content"><h3>Assign Subjects to ${teacher.name}</h3><div style="text-align:left; margin:1rem 0;">${subjectList}</div><button onclick="saveTeacherSubjects(${teacherId}, this)" class="btn-primary">Save</button><button onclick="this.closest('.modal-overlay').remove()" style="margin-left:0.5rem;padding:8px 16px;">Cancel</button></div>`;
+            document.body.appendChild(modal);
+            modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
+        }
+
+        function saveTeacherSubjects(teacherId, btn) {
+            const modal = btn.closest('.modal-overlay');
+            const checkboxes = modal.querySelectorAll('input[type="checkbox"]');
+            const selected = Array.from(checkboxes).filter(cb => cb.checked).map(cb => parseInt(cb.value));
+            const teacher = users.find(u => u.id === teacherId);
+            if (teacher) teacher.subjects = selected;
+            modal.remove();
+            renderAdminUsers();
+            alert(`Subjects updated for ${teacher.name}`);
+        }
+
+        function showAddUserModal() {
+            const name = prompt("Enter full name:");
+            const email = prompt("Enter email:");
+            const role = prompt("Enter role (admin/teacher/learner):");
+            const grade = role === 'learner' ? parseInt(prompt("Enter grade (10, 11, 12):")) : null;
+            if (name && email && role) {
+                const newId = Math.max(...users.map(u=>u.id)) + 1;
+                users.push({ id: newId, name, email, role, status: "active", grade, subjects: role === 'teacher' ? [] : [] });
+                renderAdminUsers();
+                alert("User added!");
+            }
+        }
+
+        function showAddGradeModal() {
+            const newGrade = parseInt(prompt("Enter new grade level (e.g., 9, 10, 11, 12):"));
+            if (newGrade && !grades.includes(newGrade)) {
+                grades.push(newGrade);
+                grades.sort((a,b) => a-b);
+                renderAdminSubjectStructure();
+                alert(`Grade ${newGrade} added!`);
+            } else alert("Invalid or duplicate grade");
+        }
+
+        function showAddSubjectModal() {
+            const name = prompt("Enter subject name:");
+            const grade = parseInt(prompt("Enter grade level for this subject:"));
+            if (name && grade) {
+                const newId = Math.max(...subjects.map(s=>s.id)) + 1;
+                subjects.push({ id: newId, name, grade });
+                renderAdminSubjectStructure();
+                alert(`Subject ${name} added to Grade ${grade}!`);
+            }
+        }
+
+        function approveResource(recId) {
+            const rec = resourceRecommendations.find(r => r.id === recId);
+            if (rec) {
+                rec.status = 'approved';
+                alert(`✅ Resource approved and sent to ${users.find(u=>u.id===rec.learnerId)?.name}!`);
+                renderAdminTab('approvals');
+            }
+        }
+
+        function rejectResource(recId) {
+            const rec = resourceRecommendations.find(r => r.id === recId);
+            if (rec) {
+                rec.status = 'rejected';
+                alert(`❌ Resource recommendation rejected.`);
+                renderAdminTab('approvals');
+            }
+        }
+
+        // ============ TEACHER PANEL ============
         function renderTeacherTab(tab) {
             const content = document.getElementById('dynamicContent');
             if (tab === 'dashboard') {
-                content.innerHTML = `
-                    <div class="hero-welcome"><h2>📚 Hello, ${currentUser.name.split(' ')[0]}</h2><p>You are teaching ${currentUser.subjects?.length || 2} subjects. Track per-question performance below.</p></div>
-                    <div class="stats-grid"><div class="stat-card"><i class="fas fa-users"></i><h2>${getLearners().length}</h2><p>Grade 11 Students</p></div><div class="stat-card"><i class="fas fa-exclamation-triangle" style="color:var(--warning)"></i><h2>1</h2><p>At-Risk Students</p></div></div>
-                    <div class="about-section"><h3>📖 Teaching Dashboard</h3><p>Select a subject → assessment → enter marks per question → view topic-level risk insights.</p></div>
-                `;
+                content.innerHTML = `<div class="hero-welcome"><h2>📚 Hello, ${currentUser.name.split(' ')[0]}</h2><p>You are teaching ${getSubjectsByTeacher(currentUser.id).length} subjects.</p></div>
+                <div class="stats-grid"><div class="stat-card"><i class="fas fa-users"></i><h2>${getLearners().length}</h2><p>Students</p></div>
+                <div class="stat-card"><i class="fas fa-exclamation-triangle" style="color:var(--warning)"></i><h2>${getLearners().filter(s => (studentMarks[s.id]?.[101]?.[1] || 0) < 5).length}</h2><p>At-Risk Students</p></div>
+                <div class="stat-card"><i class="fas fa-paper-plane"></i><h2>${resourceRecommendations.filter(i=>i.teacherId===currentUser.id && i.status==='pending_admin').length}</h2><p>Pending Approvals</p></div></div>
+                <div class="about-section"><h3>📖 Teacher Dashboard</h3><p>Enter marks, analyze risk, recommend resources, and schedule consultations.</p></div>`;
             } else if (tab === 'marks') {
-                const subjectsList = subjects.filter(s => currentUser.subjects?.includes(s.id));
-                content.innerHTML = `
-                    <div class="card">
-                        <h3>📝 Per-Question Mark Entry</h3>
-                        <div class="selector-group">
-                            <select id="teacherSubjectSelect" onchange="updateTeacherAssessmentSelect()">${subjectsList.map(s => `<option value="${s.id}" ${teacherSelectedSubject===s.id ? 'selected' : ''}>${s.name} (Grade ${s.grade})</option>`).join('')}</select>
-                            <select id="teacherAssessmentSelect" onchange="teacherSelectedAssessment=this.value; renderTeacherTab('marks')"></select>
-                        </div>
-                        <div id="teacherMarkTable"></div>
-                        <button class="login-btn" style="margin-top:1rem; width:auto; padding:10px 24px;" onclick="saveTeacherMarks()">Save All Marks</button>
-                    </div>
-                `;
-                updateTeacherAssessmentSelect();
+                const teacherSubjects = getSubjectsByTeacher(currentUser.id);
+                content.innerHTML = `<div class="card"><h3>📝 Per-Question Mark Entry</h3><div class="selector-group"><select id="teacherSubjectSelect" onchange="updateTeacherAssessments()">${teacherSubjects.map(s => `<option value="${s.id}">${s.name} (Grade ${s.grade})</option>`).join('')}</select><select id="teacherAssessmentSelect" onchange="teacherSelectedAssessment=parseInt(this.value); renderTeacherMarkTable()"></select></div><div id="teacherMarkTable"></div><button class="login-btn" style="margin-top:1rem; width:auto; padding:10px 24px;" onclick="saveTeacherMarks()">Save All Marks</button></div>`;
+                updateTeacherAssessments();
                 renderTeacherMarkTable();
             } else if (tab === 'risk') {
-                const subjectsList = subjects.filter(s => currentUser.subjects?.includes(s.id));
-                content.innerHTML = `<div class="card"><h3>⚠️ Risk Analysis by Subject</h3><div class="selector-group"><select id="riskSubjectSelect" onchange="renderTeacherRisk()">${subjectsList.map(s => `<option value="${s.id}">${s.name}</option>`).join('')}</select></div><div id="teacherRiskContent"></div></div>`;
+                content.innerHTML = `<div class="card"><h3>⚠️ Risk Analysis</h3><div class="selector-group"><select id="riskSubjectSelect" onchange="renderTeacherRisk()">${getSubjectsByTeacher(currentUser.id).map(s => `<option value="${s.id}">${s.name}</option>`).join('')}</select></div><div id="teacherRiskContent"></div></div>`;
                 renderTeacherRisk();
-            } else if (tab === 'sendConsult') {
-                content.innerHTML = `<div class="card"><h3>Send Consultation to Student</h3><select id="consultStudent" style="width:100%; padding:12px; margin-bottom:1rem; border-radius:12px;"><option value="">Select Learner</option>${getLearners().map(s=>`<option value="${s.id}">${s.name}</option>`).join('')}</select><input id="consultTopic" placeholder="Topic / Subject" style="width:100%; padding:12px; margin-bottom:1rem; border-radius:12px;"><textarea id="consultMsg" placeholder="Message to student..." style="width:100%; padding:12px; border-radius:12px;" rows="3"></textarea><button class="login-btn" style="margin-top:1rem;" onclick="sendConsultation()">Send Request →</button></div>`;
-            } else if (tab === 'consultations') {
-                const myConsults = consultations.filter(c=>c.teacherId===currentUser.id);
-                content.innerHTML = `<div class="card"><h3>My Consultations</h3>${myConsults.map(c=>`<div class="consultation-card"><strong>${users.find(u=>u.id===c.learnerId)?.name}</strong><br>${c.topic}<br><span class="badge-warning">${c.status}</span></div>`).join('') || '<div class="empty-state">No consultations sent yet</div>'}</div>`;
-            } else if (tab === 'resources') renderResources(content);
+            } else if (tab === 'recommendResource') {
+                content.innerHTML = `<div class="card"><h3>📨 Recommend Resource to Student (Admin Approval Required)</h3><select id="recommendStudent" style="width:100%; padding:12px; margin-bottom:1rem; border-radius:12px;"><option value="">Select Student</option>${getLearners().map(s=>`<option value="${s.id}">${s.name} (Grade ${s.grade})</option>`).join('')}</select><select id="recommendResourceId" style="width:100%; padding:12px; margin-bottom:1rem; border-radius:12px;"><option value="">Select Resource</option>${resources.map(r=>`<option value="${r.id}">${r.title}</option>`).join('')}</select><textarea id="recommendMsg" placeholder="Why are you recommending this resource?" style="width:100%; padding:12px; border-radius:12px;" rows="3"></textarea><button class="login-btn" style="margin-top:1rem;" onclick="sendResourceRecommendation()">Submit for Admin Approval →</button></div>`;
+            } else if (tab === 'scheduleConsult') {
+                content.innerHTML = `<div class="card"><h3>📅 Schedule Consultation with Student</h3><select id="consultStudent" style="width:100%; padding:12px; margin-bottom:1rem; border-radius:12px;"><option value="">Select Student</option>${getLearners().map(s=>`<option value="${s.id}">${s.name}</option>`).join('')}</select><input id="consultTopic" placeholder="Topic / Subject" style="width:100%; padding:12px; margin-bottom:1rem; border-radius:12px;"><input id="consultDate" type="date" style="width:100%; padding:12px; margin-bottom:1rem; border-radius:12px;"><textarea id="consultMsg" placeholder="Meeting details..." style="width:100%; padding:12px; border-radius:12px;" rows="3"></textarea><button class="login-btn" style="margin-top:1rem;" onclick="sendConsultation()">Send Consultation Request →</button></div>`;
+            } else if (tab === 'myMessages') {
+                const myRecs = resourceRecommendations.filter(i => i.teacherId === currentUser.id);
+                const myConsults = consultations.filter(c => c.teacherId === currentUser.id);
+                content.innerHTML = `<div class="card"><h3>📬 My Messages</h3><h4>Resource Recommendations</h4>${myRecs.map(i => `<div class="intervention-card"><strong>To: ${users.find(u=>u.id===i.learnerId)?.name}</strong><br>Resource: ${resources.find(r=>r.id===i.resourceId)?.title}<br>Status: <span class="badge ${i.status==='pending_admin'?'badge-warning':i.status==='approved'?'badge-success':'badge-danger'}">${i.status}</span></div>`).join('') || '<div class="empty-state">No resource recommendations</div>'}<h4 class="mt-2">Consultations</h4>${myConsults.map(c => `<div class="consultation-card"><strong>To: ${users.find(u=>u.id===c.learnerId)?.name}</strong><br>Topic: ${c.topic}<br>Status: ${c.status}</div>`).join('') || '<div class="empty-state">No consultations</div>'}</div>`;
+            } else if (tab === 'resources') {
+                content.innerHTML = `<div class="card"><h3>Resources Library</h3>${resources.map(r => `<div class="resource-card"><strong>${r.title}</strong><br>${r.description}<br><span class="badge-info">${r.type}</span></div>`).join('')}</div>`;
+            }
         }
 
-        function updateTeacherAssessmentSelect() {
+        function updateTeacherAssessments() {
             const subjectSelect = document.getElementById('teacherSubjectSelect');
             if (subjectSelect) {
-                teacherSelectedSubject = parseInt(subjectSelect.value);
-                const assessmentsList = getAssessmentsBySubject(teacherSelectedSubject);
+                const subjectId = parseInt(subjectSelect.value);
+                const assessList = getAssessmentsBySubject(subjectId);
                 const assessSelect = document.getElementById('teacherAssessmentSelect');
                 if (assessSelect) {
-                    assessSelect.innerHTML = assessmentsList.map(a => `<option value="${a.id}" ${teacherSelectedAssessment===a.id ? 'selected' : ''}>${a.name} (${a.totalMarks} marks)</option>`).join('');
-                    if (assessmentsList.length) teacherSelectedAssessment = assessmentsList[0].id;
+                    assessSelect.innerHTML = assessList.map(a => `<option value="${a.id}">${a.name} (${a.totalMarks} marks)</option>`).join('');
+                    if (assessList.length) teacherSelectedAssessment = assessList[0].id;
                 }
             }
             renderTeacherMarkTable();
@@ -612,19 +727,36 @@
             const assQuestions = getQuestionsByAssessment(teacherSelectedAssessment);
             if (assQuestions.length === 0) { container.innerHTML = '<div class="empty-state">No questions configured for this assessment.</div>'; return; }
             const learners = getLearners();
-            let html = `<table><thead><tr><th>Student</th>${assQuestions.map(q => `<th>${q.name}<br><span style="font-size:0.7rem;">${q.topic} (${q.marks})</span></th>`).join('')}<th>Total</th></tr></thead><tbody>`;
+            let html = `<table><thead><th>Student</th>${assQuestions.map(q => `<th>${q.name}<br><span style="font-size:0.7rem;">${q.topic} (${q.marks})</span></th>`).join('')}<th>Total</th></thead><tbody>`;
             learners.forEach(s => {
                 let total = 0;
                 html += `<tr><td><strong>${s.name}</strong></td>`;
                 assQuestions.forEach(q => {
                     const mark = studentMarks[s.id]?.[teacherSelectedAssessment]?.[q.id] || 0;
                     total += mark;
-                    html += `<td><input type="number" class="mark-input" id="mark_${s.id}_${q.id}" value="${mark}" min="0" max="${q.marks}"></td>`;
+                    html += `<td><input type="number" class="mark-input" id="mark_${s.id}_${teacherSelectedAssessment}_${q.id}" value="${mark}" min="0" max="${q.marks}" onchange="updateLearnerTotal(${s.id}, ${teacherSelectedAssessment})"></td>`;
                 });
-                html += `<td><strong>${total}</strong></td></tr>`;
+                html += `<td><strong id="total_${s.id}_${teacherSelectedAssessment}">${total}</strong></td></tr>`;
             });
-            html += `</tbody></table>`;
+            html += `</tbody>`;
             container.innerHTML = html;
+        }
+
+        function updateLearnerTotal(studentId, assessmentId) {
+            const assQuestions = getQuestionsByAssessment(assessmentId);
+            let total = 0;
+            assQuestions.forEach(q => {
+                const input = document.getElementById(`mark_${studentId}_${assessmentId}_${q.id}`);
+                if (input) {
+                    const val = parseInt(input.value) || 0;
+                    total += val;
+                    if (!studentMarks[studentId]) studentMarks[studentId] = {};
+                    if (!studentMarks[studentId][assessmentId]) studentMarks[studentId][assessmentId] = {};
+                    studentMarks[studentId][assessmentId][q.id] = val;
+                }
+            });
+            const totalSpan = document.getElementById(`total_${studentId}_${assessmentId}`);
+            if (totalSpan) totalSpan.innerText = total;
         }
 
         function saveTeacherMarks() {
@@ -633,11 +765,11 @@
                 if (!studentMarks[s.id]) studentMarks[s.id] = {};
                 if (!studentMarks[s.id][teacherSelectedAssessment]) studentMarks[s.id][teacherSelectedAssessment] = {};
                 assQuestions.forEach(q => {
-                    const input = document.getElementById(`mark_${s.id}_${q.id}`);
+                    const input = document.getElementById(`mark_${s.id}_${teacherSelectedAssessment}_${q.id}`);
                     if (input) studentMarks[s.id][teacherSelectedAssessment][q.id] = parseInt(input.value) || 0;
                 });
             });
-            alert("Marks saved successfully!");
+            alert(`✅ Marks saved for assessment!`);
             renderTeacherMarkTable();
         }
 
@@ -665,12 +797,35 @@
                 });
                 const overallAvg = totalPossible > 0 ? (totalEarned / totalPossible) * 100 : 0;
                 const weakTopics = Object.entries(topicScores).filter(([_, data]) => (data.sum / data.count) < 50).map(([topic]) => topic);
-                html += `<div class="consultation-card"><strong>${s.name}</strong><div class="progress-bar mt-1"><div class="progress-fill" style="width:${overallAvg}%; background:${overallAvg<50?'var(--danger)':overallAvg<75?'var(--warning)':'var(--success)'}"></div></div><p>Overall: ${Math.round(overallAvg)}%</p>${weakTopics.length ? `<p class="badge-danger" style="display:inline-block; margin-top:0.5rem;">⚠️ Weak: ${weakTopics.join(', ')}</p>` : '<p class="badge-success" style="display:inline-block;">✅ On Track</p>'}</div>`;
+                html += `<div class="intervention-card"><strong>${s.name}</strong><div class="progress-bar mt-1"><div class="progress-fill" style="width:${overallAvg}%; background:${overallAvg<50?'var(--danger)':overallAvg<75?'var(--warning)':'var(--success)'}"></div></div><p>Overall: ${Math.round(overallAvg)}%</p>${weakTopics.length ? `<p><span class="badge-danger">⚠️ Weak: ${weakTopics.join(', ')}</span></p>` : '<p><span class="badge-success">✅ On Track</span></p>'}</div>`;
             });
             container.innerHTML = html || '<div class="empty-state">No data available</div>';
         }
 
-        // ============ LEARNER ============
+        function sendResourceRecommendation() {
+            const studentId = parseInt(document.getElementById('recommendStudent')?.value);
+            const resourceId = parseInt(document.getElementById('recommendResourceId')?.value);
+            const message = document.getElementById('recommendMsg')?.value;
+            if (studentId && resourceId && message) {
+                resourceRecommendations.push({ id: Date.now(), teacherId: currentUser.id, learnerId: studentId, resourceId, message, status: "pending_admin", createdAt: new Date().toISOString().split('T')[0] });
+                alert("✅ Resource recommendation submitted for Admin approval!");
+                switchTab('myMessages');
+            } else alert("Please fill all fields");
+        }
+
+        function sendConsultation() {
+            const studentId = parseInt(document.getElementById('consultStudent')?.value);
+            const topic = document.getElementById('consultTopic')?.value;
+            const date = document.getElementById('consultDate')?.value;
+            const message = document.getElementById('consultMsg')?.value;
+            if (studentId && topic && message) {
+                consultations.push({ id: Date.now(), teacherId: currentUser.id, learnerId: studentId, topic, message, status: "pending", date: date || "TBD" });
+                alert("✅ Consultation request sent to student!");
+                switchTab('myMessages');
+            } else alert("Please fill all fields");
+        }
+
+        // ============ LEARNER PANEL ============
         function renderLearnerTab(tab) {
             const content = document.getElementById('dynamicContent');
             if (tab === 'dashboard') {
@@ -684,22 +839,28 @@
                     });
                 });
                 const overall = totalPossible > 0 ? (totalEarned / totalPossible) * 100 : 0;
-                content.innerHTML = `
-                    <div class="hero-welcome"><h2>🎓 Welcome, ${currentUser.name.split(' ')[0]}!</h2><p>Grade ${currentUser.grade} Student · Real-time academic insights</p></div>
-                    <div class="stats-grid"><div class="stat-card"><i class="fas fa-chart-line"></i><h2>${Math.round(overall)}%</h2><p>Overall Average</p></div><div class="stat-card"><i class="fas fa-calendar-check"></i><h2>${consultations.filter(c=>c.learnerId===currentUser.id).length}</h2><p>Support Sessions</p></div></div>
-                    <div class="about-section"><h3><i class="fas fa-lightbulb"></i> Your Learning Journey</h3><p>ARIS tracks performance at the question level across all your subjects. Check the Subject Performance tab to see detailed topic-by-topic breakdowns.</p></div>
-                `;
-            } else if (tab === 'subjects') {
-                content.innerHTML = `<div class="card"><h3>📊 Subject Performance</h3><div id="learnerSubjectsContainer"></div></div>`;
-                renderLearnerSubjects();
+                const approvedResources = resourceRecommendations.filter(r => r.learnerId === currentUser.id && r.status === 'approved');
+                content.innerHTML = `<div class="hero-welcome"><h2>🎓 Welcome, ${currentUser.name.split(' ')[0]}!</h2><p>Grade ${currentUser.grade} Student</p></div>
+                <div class="stats-grid"><div class="stat-card"><i class="fas fa-chart-line"></i><h2>${Math.round(overall)}%</h2><p>Overall Average</p></div>
+                <div class="stat-card"><i class="fas fa-gift"></i><h2>${approvedResources.length}</h2><p>New Resources</p></div>
+                <div class="stat-card"><i class="fas fa-calendar-check"></i><h2>${consultations.filter(c=>c.learnerId===currentUser.id).length}</h2><p>Consultations</p></div></div>
+                <div class="about-section"><h3>📚 Your Learning Journey</h3><p>Check your performance, recommended resources, and consultation requests.</p></div>`;
+            } else if (tab === 'performance') {
+                content.innerHTML = `<div class="card"><h3>📊 My Performance by Subject</h3><div id="learnerPerformanceContainer"></div></div>`;
+                renderLearnerPerformance();
+            } else if (tab === 'myResources') {
+                const approvedResources = resourceRecommendations.filter(r => r.learnerId === currentUser.id && r.status === 'approved');
+                content.innerHTML = `<div class="card"><h3>🎁 Recommended Resources (Approved by Admin)</h3>${approvedResources.map(r => `<div class="resource-card"><strong>From: ${users.find(u=>u.id===r.teacherId)?.name}</strong><br>Resource: ${resources.find(res=>res.id===r.resourceId)?.title}<br>Message: ${r.message}<br><button onclick="alert('Resource access granted!')" class="btn-sm btn-accept">Access Resource</button></div>`).join('') || '<div class="empty-state">No approved resources yet. Teachers may recommend resources for you.</div>'}</div>`;
             } else if (tab === 'consultations') {
-                const myConsults = consultations.filter(c=>c.learnerId===currentUser.id);
-                content.innerHTML = `<div class="card"><h3>My Consultation History</h3>${myConsults.map(c=>`<div class="consultation-card"><strong>${c.topic}</strong><br>Message: ${c.message}<br>Status: ${c.status}</div>`).join('') || '<div class="empty-state">No consultations yet</div>'}</div>`;
-            } else if (tab === 'resources') renderResources(content);
+                const myConsults = consultations.filter(c => c.learnerId === currentUser.id);
+                content.innerHTML = `<div class="card"><h3>📅 My Consultations</h3>${myConsults.map(c => `<div class="consultation-card"><strong>From: ${users.find(u=>u.id===c.teacherId)?.name}</strong><br>Topic: ${c.topic}<br>Date: ${c.date}<br>Message: ${c.message}<br>Status: <span class="badge badge-warning">${c.status}</span><br><button onclick="respondToConsultation(${c.id}, 'accepted')" class="btn-sm btn-accept">Accept</button> <button onclick="respondToConsultation(${c.id}, 'declined')" class="btn-sm btn-reject">Decline</button></div>`).join('') || '<div class="empty-state">No consultation requests</div>'}</div>`;
+            } else if (tab === 'resources') {
+                content.innerHTML = `<div class="card"><h3>📚 Support Resources</h3>${resources.map(r => `<div class="resource-card"><strong>${r.title}</strong><br>${r.description}<br><span class="badge-info">${r.type}</span></div>`).join('')}</div>`;
+            }
         }
 
-        function renderLearnerSubjects() {
-            const container = document.getElementById('learnerSubjectsContainer');
+        function renderLearnerPerformance() {
+            const container = document.getElementById('learnerPerformanceContainer');
             if (!container) return;
             let html = '';
             subjects.forEach(sub => {
@@ -718,36 +879,41 @@
                         topicScores[q.topic].count++;
                     });
                     const assPercent = assTotalPossible > 0 ? (assTotalEarned / assTotalPossible) * 100 : 0;
-                    html += `<div class="consultation-card" style="margin-bottom:1rem;"><strong>${ass.name}</strong> — ${Math.round(assPercent)}%<div class="progress-bar"><div class="progress-fill" style="width:${assPercent}%; background:${assPercent<50?'var(--danger)':assPercent<75?'var(--warning)':'var(--success)'}"></div></div><div style="margin-top: 0.8rem; font-size: 0.85rem;">${Object.entries(topicScores).map(([topic, data]) => `<span class="badge ${(data.sum/data.count)<50?'badge-danger':'badge-success'}" style="margin-right:0.5rem;">${topic}: ${Math.round(data.sum/data.count)}%</span>`).join('')}</div></div>`;
+                    html += `<div class="intervention-card"><strong>${ass.name}</strong> — ${Math.round(assPercent)}%<div class="progress-bar"><div class="progress-fill" style="width:${assPercent}%; background:${assPercent<50?'var(--danger)':assPercent<75?'var(--warning)':'var(--success)'}"></div></div><div style="margin-top: 0.8rem;">${Object.entries(topicScores).map(([topic, data]) => `<span class="badge ${(data.sum/data.count)<50?'badge-danger':'badge-success'}" style="margin-right:0.5rem;">${topic}: ${Math.round(data.sum/data.count)}%</span>`).join('')}</div></div>`;
                 });
                 html += `</div>`;
             });
             container.innerHTML = html;
         }
 
-        function renderResources(container) {
-            container.innerHTML = `<div class="card"><h3><i class="fas fa-hand-holding-heart"></i> Intervention & Tutoring Resources</h3>${resources.map(r => `<div class="resource-card" onclick="alert('Resource: ${r.title}\\n${r.description}')"><strong>${r.title}</strong><br>${r.description}<br><span class="badge-success">${r.type}</span></div>`).join('')}<p style="margin-top:1rem;">📍 Nearby tutors, school programs, and digital tools available.</p></div>`;
+        function respondToConsultation(consultId, response) {
+            const idx = consultations.findIndex(c => c.id === consultId);
+            if (idx !== -1) {
+                consultations[idx].status = response;
+                alert(`Consultation ${response === 'accepted' ? 'accepted' : 'declined'}.`);
+                renderLearnerTab('consultations');
+            }
         }
 
-        function sendConsultation() {
-            const studentId = parseInt(document.getElementById('consultStudent')?.value);
-            const topic = document.getElementById('consultTopic')?.value;
-            const msg = document.getElementById('consultMsg')?.value;
-            if (studentId && topic && msg) {
-                consultations.push({ id: Date.now(), learnerId: studentId, teacherId: currentUser.id, subjectId: teacherSelectedSubject, topic, message: msg, status: "pending" });
-                alert("Consultation sent to student!");
-                switchTab('consultations');
-            } else alert("Please fill all fields");
-        }
+        function toggleUserStatus(id) { const idx = users.findIndex(u=>u.id===id); if(idx!==-1) users[idx].status = users[idx].status==='active'?'inactive':'active'; if(currentUser.role === 'admin') renderAdminTab('users'); }
 
-        function toggleUserStatus(id) { const idx = users.findIndex(u=>u.id===id); if(idx!==-1) users[idx].status = users[idx].status==='active'?'inactive':'active'; renderAdminTab('users'); }
-
-        window.updateTeacherAssessmentSelect = updateTeacherAssessmentSelect;
+        // Global exports
+        window.updateTeacherAssessments = updateTeacherAssessments;
         window.renderTeacherMarkTable = renderTeacherMarkTable;
         window.saveTeacherMarks = saveTeacherMarks;
+        window.updateLearnerTotal = updateLearnerTotal;
         window.renderTeacherRisk = renderTeacherRisk;
+        window.sendResourceRecommendation = sendResourceRecommendation;
         window.sendConsultation = sendConsultation;
+        window.respondToConsultation = respondToConsultation;
+        window.approveResource = approveResource;
+        window.rejectResource = rejectResource;
         window.toggleUserStatus = toggleUserStatus;
+        window.editTeacherSubjects = editTeacherSubjects;
+        window.saveTeacherSubjects = saveTeacherSubjects;
+        window.showAddUserModal = showAddUserModal;
+        window.showAddGradeModal = showAddGradeModal;
+        window.showAddSubjectModal = showAddSubjectModal;
         window.switchTab = switchTab;
         window.logout = logout;
         window.openProfileModal = openProfileModal;
