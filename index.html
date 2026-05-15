@@ -1,411 +1,760 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>ARIS | Academic Risk Intelligence System</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      /* Student-Friendly Blue Palette */
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --secondary: #3b82f6;
-      --bg-main: #f8fafc;
-      --sidebar-bg: #ffffff;
-      --sidebar-text: #64748b;
-      --card-bg: #ffffff;
-      --text-main: #1e293b;
-      --text-muted: #64748b;
-      
-      /* Status Colors */
-      --success: #10b981;
-      --warning: #f59e0b;
-      --danger: #ef4444;
-      --accent-soft: #dbeafe;
-      
-      /* Styling Constants */
-      --radius-lg: 16px;
-      --radius-md: 12px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-      --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1);
-      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ARIS | Academic Risk Intelligence System — Professional Suite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --primary-light: #eef2ff;
+            --primary-glow: rgba(79, 70, 229, 0.2);
+            --secondary: #06b6d4;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #0f172a;
+            --dark-muted: #1e293b;
+            --gray: #64748b;
+            --gray-light: #94a3b8;
+            --gray-bg: #f1f5f9;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --shadow-xs: 0 1px 2px rgba(0,0,0,0.03);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.03);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.01);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-2xl: 32px;
+        }
 
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: var(--bg-main);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+            min-height: 100vh;
+            color: var(--dark);
+        }
 
-    .app-wrapper { display: flex; min-height: 100vh; }
+        /* Login Premium */
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            position: relative;
+            background: radial-gradient(ellipse at 30% 40%, rgba(79,70,229,0.08) 0%, transparent 60%);
+        }
 
-    /* ========== SIDEBAR UPGRADE ========== */
-    .sidebar {
-      width: 260px;
-      background: var(--sidebar-bg);
-      border-right: 1px solid #e2e8f0;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      z-index: 100;
-    }
+        .login-card {
+            background: var(--white);
+            border-radius: var(--radius-2xl);
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 480px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255,255,255,0.5);
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 0.5rem 0.5rem 2rem;
-    }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    .logo-icon {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.2rem;
-    }
+        .login-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        .login-icon i { font-size: 1.8rem; color: white; }
 
-    .logo-text { font-weight: 800; font-size: 1.4rem; color: var(--primary); letter-spacing: -0.5px; }
+        .role-selector {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+            background: var(--gray-bg);
+            padding: 0.5rem;
+            border-radius: 60px;
+        }
+        .role-option {
+            flex: 1;
+            text-align: center;
+            padding: 0.7rem;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            color: var(--gray);
+        }
+        .role-option.active {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
 
-    .nav-menu { flex: 1; margin-top: 1rem; }
+        .input-group {
+            margin-bottom: 1rem;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-lg);
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
 
-    .nav-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      border-radius: var(--radius-md);
-      color: var(--sidebar-text);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 4px;
-      cursor: pointer;
-      transition: var(--transition);
-    }
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .login-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
-    .nav-item i { font-size: 1.1rem; }
+        /* App Container */
+        .app-container { display: none; }
 
-    .nav-item:hover {
-      background: var(--bg-main);
-      color: var(--primary);
-    }
+        /* Sidebar Premium */
+        .sidebar {
+            width: 280px;
+            background: var(--white);
+            border-right: 1px solid var(--border);
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 100;
+        }
 
-    .nav-item.active {
-      background: var(--accent-soft);
-      color: var(--primary);
-    }
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 2rem;
+        }
+        .sidebar-logo {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sidebar-logo i { color: white; font-size: 1.2rem; }
+        .sidebar-title { font-weight: 800; font-size: 1.3rem; background: linear-gradient(135deg, var(--dark), var(--primary)); background-clip: text; -webkit-background-clip: text; color: transparent; }
 
-    /* ========== MAIN CONTENT UPGRADE ========== */
-    .main-content { flex: 1; padding: 2.5rem; max-width: 1200px; margin: 0 auto; }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+        .nav-item:hover, .nav-item.active {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
 
-    .top-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2.5rem;
-    }
+        .sidebar-footer {
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+        }
+        .footer-action {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 16px;
+            border-radius: var(--radius-md);
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .footer-action:hover { background: var(--gray-bg); color: var(--danger); }
 
-    .page-title h1 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; }
-    .page-title p { color: var(--text-muted); font-size: 0.95rem; }
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            padding: 2rem;
+        }
 
-    /* ========== CARDS & DATA TABLES ========== */
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid #e2e8f0;
-      margin-bottom: 2rem;
-      transition: var(--transition);
-    }
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+        .icon-btn {
+            width: 42px;
+            height: 42px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+        .icon-btn:hover { background: var(--primary); color: white; transform: translateY(-2px); }
 
-    .card:hover { box-shadow: var(--shadow-md); }
+        /* Dashboard Hero */
+        .hero-welcome {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
 
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.3rem;
+            transition: all 0.2s;
+            border: 1px solid var(--border);
+        }
+        .stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 
-    .card-header h3 { font-size: 1.2rem; font-weight: 700; }
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border);
+        }
 
-    table { width: 100%; border-collapse: collapse; }
-    th { text-align: left; padding: 12px 16px; color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #f1f5f9; }
-    td { padding: 16px; border-bottom: 1px solid #f1f5f9; font-size: 0.95rem; }
+        .selector-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .selector-group select {
+            padding: 10px 16px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            background: var(--white);
+            font-weight: 500;
+        }
 
-    /* ========== BUTTONS & INPUTS ========== */
-    .btn {
-      padding: 10px 20px;
-      border-radius: var(--radius-md);
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-      transition: var(--transition);
-    }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 14px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { font-weight: 700; color: var(--gray); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
 
-    .btn-primary { background: var(--primary); color: white; }
-    .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+        .mark-input {
+            width: 70px;
+            padding: 8px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            text-align: center;
+        }
 
-    .btn-ghost { background: transparent; color: var(--text-muted); }
-    .btn-ghost:hover { background: var(--bg-main); color: var(--primary); }
+        .progress-bar {
+            background: var(--gray-bg);
+            border-radius: 20px;
+            height: 8px;
+            overflow: hidden;
+        }
+        .progress-fill { height: 100%; border-radius: 20px; transition: width 0.3s; }
 
-    .input-pill {
-      background: var(--bg-main);
-      border: 1px solid #e2e8f0;
-      padding: 8px 12px;
-      border-radius: 8px;
-      width: 80px;
-      text-align: center;
-      font-weight: 600;
-      color: var(--primary);
-    }
+        .badge {
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+        .badge-success { background: #d1fae5; color: #065f46; }
+        .badge-warning { background: #fef3c7; color: #92400e; }
+        .badge-danger { background: #fee2e2; color: #991b1b; }
 
-    /* ========== PROGRESS BARS ========== */
-    .progress-bar {
-      height: 10px;
-      background: #f1f5f9;
-      border-radius: 10px;
-      overflow: hidden;
-      margin: 10px 0;
-    }
-    .progress-fill { height: 100%; background: var(--primary); transition: width 0.5s ease; }
+        .consultation-card, .resource-card {
+            background: var(--gray-bg);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .consultation-card:hover, .resource-card:hover { background: var(--primary-light); transform: translateX(4px); }
 
-    /* ========== STATUS BADGES ========== */
-    .badge {
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    .badge-blue { background: var(--accent-soft); color: var(--primary); }
-    .badge-red { background: #fee2e2; color: var(--danger); }
+        .about-section {
+            background: linear-gradient(145deg, var(--white), var(--gray-bg));
+            border-radius: var(--radius-xl);
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border: 1px solid var(--border);
+        }
 
-    /* ========== MARK ENTRY GRID COLORS ========== */
-    .cell-pass { background-color: #ecfdf5 !important; color: #065f46; border-radius: 6px; }
-    .cell-risk { background-color: #fff7ed !important; color: #9a3412; border-radius: 6px; }
-    .cell-fail { background-color: #fef2f2 !important; color: #991b1b; border-radius: 6px; }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .profile-modal {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            width: 90%;
+            max-width: 380px;
+            text-align: center;
+        }
 
-    /* Animations */
-    .fade-in { animation: fadeIn 0.3s ease-out; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-    @media (max-width: 1024px) {
-      .sidebar { width: 80px; padding: 1rem; }
-      .logo-text, .nav-item span { display: none; }
-    }
-  </style>
+        .hidden { display: none; }
+        .empty-state { text-align: center; padding: 2rem; color: var(--gray); }
+    </style>
 </head>
 <body>
-
-<div class="app-wrapper">
-  <aside class="sidebar">
-    <div class="logo-area">
-      <div class="logo-icon"><i class="fas fa-bolt"></i></div>
-      <span class="logo-text">ARIS</span>
-    </div>
-    
-    <nav class="nav-menu">
-      <div class="nav-item active" onclick="switchTab('subjects', this)"><i class="fas fa-book"></i><span>Subjects</span></div>
-      <div class="nav-item" onclick="switchTab('assessments', this)"><i class="fas fa-layer-group"></i><span>Assessments</span></div>
-      <div class="nav-item" onclick="switchTab('questions', this)"><i class="fas fa-pen-ruler"></i><span>Question Builder</span></div>
-      <div class="nav-item" onclick="switchTab('marks', this)"><i class="fas fa-check-double"></i><span>Mark Entry</span></div>
-      <div class="nav-item" onclick="switchTab('risk', this)"><i class="fas fa-shield-heart"></i><span>Intervention</span></div>
-    </nav>
-    
-    <div class="nav-item" style="margin-top: auto; color: var(--text-muted); font-size: 0.8rem;">
-      <i class="fas fa-user-circle"></i><span>Admin Portal</span>
-    </div>
-  </aside>
-
-  <main class="main-content">
-    <header class="top-header">
-      <div class="page-title">
-        <h1 id="viewTitle">Subject Management</h1>
-        <p id="viewSubtitle">Overview of your school's academic structure</p>
-      </div>
-      <div class="btn btn-ghost" style="border: 1px solid #e2e8f0;">
-        <i class="fas fa-calendar"></i> 2026 Academic Year
-      </div>
-    </header>
-
-    <div id="subjectsSection" class="tab-content fade-in">
-      <div class="card">
-        <div class="card-header">
-          <h3>Active Subjects</h3>
-          <button class="btn btn-primary" onclick="addSubject()"><i class="fas fa-plus"></i> Create Subject</button>
+    <div id="loginScreen" class="login-container">
+        <div class="login-card">
+            <div class="login-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h2 style="text-align:center; font-size:1.8rem;">ARIS</h2>
+            <p style="text-align:center; color:var(--gray); margin-bottom:1rem;">Intelligent Academic Risk System</p>
+            <div class="role-selector" id="roleSelector">
+                <div class="role-option active" data-role="admin">👑 Admin</div>
+                <div class="role-option" data-role="teacher">📖 Teacher</div>
+                <div class="role-option" data-role="learner">🎓 Learner</div>
+            </div>
+            <div class="input-group"><input type="email" id="loginEmail" placeholder="Email address"></div>
+            <div class="input-group"><input type="password" id="loginPassword" placeholder="Password"></div>
+            <button class="login-btn" onclick="handleLogin()">Access Dashboard →</button>
+            <p style="text-align:center; margin-top:1rem; font-size:0.7rem;">demo: admin@aris.com | teacher@aris.com | learner@aris.com</p>
         </div>
-        <table>
-          <thead>
-            <tr><th>Name</th><th>Assessments</th><th>Risk Level</th><th>Actions</th></tr>
-          </thead>
-          <tbody id="subjectList">
-            </tbody>
-        </table>
-      </div>
     </div>
 
-    <div id="marksSection" class="tab-content fade-in" style="display: none;">
-      <div class="card">
-        <div class="card-header">
-          <div>
-            <h3>Test 1: Mathematics</h3>
-            <p style="font-size: 0.8rem; color: var(--text-muted);">Capturing marks per-question for diagnostic tracking</p>
-          </div>
-          <button class="btn btn-primary" onclick="saveAllMarks()"><i class="fas fa-save"></i> Save Batch</button>
+    <div id="appContainer" class="app-container">
+        <div class="sidebar">
+            <div>
+                <div class="sidebar-header">
+                    <div class="sidebar-logo"><i class="fas fa-graduation-cap"></i></div>
+                    <span class="sidebar-title">ARIS</span>
+                </div>
+                <div id="navItems"></div>
+            </div>
+            <div class="sidebar-footer">
+                <div class="footer-action" onclick="openSettings()"><i class="fas fa-cog"></i> Settings</div>
+                <div class="footer-action" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</div>
+            </div>
         </div>
-        <div style="overflow-x: auto;">
-          <table id="markEntryTable">
-            </table>
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="icon-btn" onclick="showNotifications()"><i class="fas fa-bell"></i></div>
+                <div class="icon-btn" onclick="openProfileModal()"><i class="fas fa-user-circle"></i></div>
+            </div>
+            <div id="dynamicContent"></div>
         </div>
-      </div>
     </div>
 
-    <div id="riskSection" class="tab-content fade-in" style="display: none;">
-      <div class="card" style="background: linear-gradient(to right, #ffffff, #f0f7ff);">
-        <h3><i class="fas fa-robot" style="color: var(--primary);"></i> AI Intervention Recommendations</h3>
-        <p>Based on per-question data, these students need immediate support in specific topics.</p>
-        <div id="riskList" style="margin-top: 1.5rem;">
-          </div>
-      </div>
-    </div>
+    <script>
+        // ============ DATA MODEL ============
+        let users = [
+            { id: 1, name: "Dr. Sarah Chen", email: "admin@aris.com", role: "admin", status: "active", grade: null, avatar: "👑" },
+            { id: 2, name: "Mr. James Wilson", email: "teacher@aris.com", role: "teacher", status: "active", grade: null, subjects: [1, 2], avatar: "📖" },
+            { id: 3, name: "Thabo Nkosi", email: "learner@aris.com", role: "learner", status: "active", grade: 11, avatar: "🎓" },
+            { id: 4, name: "Priya Patel", email: "priya@learner.com", role: "learner", status: "active", grade: 11, avatar: "🎓" },
+            { id: 5, name: "Emma Williams", email: "emma@learner.com", role: "learner", status: "active", grade: 11, avatar: "🎓" }
+        ];
 
-  </main>
-</div>
+        let subjects = [
+            { id: 1, name: "Mathematics", grade: 11 },
+            { id: 2, name: "Physical Sciences", grade: 11 },
+            { id: 3, name: "English HL", grade: 11 }
+        ];
 
-<script>
-  // Mock Data
-  let subjects = [
-    { name: 'Mathematics', assessments: 2, risk: 'Low' },
-    { name: 'Information Systems', assessments: 3, risk: 'Moderate' }
-  ];
+        // Assessments under each subject
+        let assessments = [
+            { id: 101, subjectId: 1, name: "Test 1", totalMarks: 50, weight: 30 },
+            { id: 102, subjectId: 1, name: "Test 2", totalMarks: 50, weight: 30 },
+            { id: 103, subjectId: 1, name: "Exam", totalMarks: 100, weight: 40 },
+            { id: 201, subjectId: 2, name: "Test 1", totalMarks: 40, weight: 40 },
+            { id: 202, subjectId: 2, name: "Exam", totalMarks: 100, weight: 60 }
+        ];
 
-  const students = [
-    { id: 1, name: "Thabo Nkosi" },
-    { id: 2, name: "Sarah Pillay" },
-    { id: 3, name: "Given Mabhena" }
-  ];
+        // Questions per assessment (with topics)
+        let questions = [
+            { id: 1, assessmentId: 101, name: "Q1", marks: 10, topic: "Algebra" },
+            { id: 2, assessmentId: 101, name: "Q2", marks: 15, topic: "Geometry" },
+            { id: 3, assessmentId: 101, name: "Q3", marks: 10, topic: "Functions" },
+            { id: 4, assessmentId: 101, name: "Q4", marks: 15, topic: "Statistics" },
+            { id: 5, assessmentId: 102, name: "Q1", marks: 12, topic: "Algebra" },
+            { id: 6, assessmentId: 102, name: "Q2", marks: 18, topic: "Trigonometry" },
+            { id: 7, assessmentId: 201, name: "Q1", marks: 10, topic: "Mechanics" },
+            { id: 8, assessmentId: 201, name: "Q2", marks: 15, topic: "Waves" }
+        ];
 
-  const questions = [
-    { id: 'q1', label: 'Q1 (Algebra)', max: 10 },
-    { id: 'q2', label: 'Q2 (Geometry)', max: 15 },
-    { id: 'q3', label: 'Q3 (Logic)', max: 5 }
-  ];
+        // Student marks: studentId -> assessmentId -> questionId -> score
+        let studentMarks = {
+            3: { // Thabo
+                101: { 1: 4, 2: 6, 3: 5, 4: 7 },
+                102: { 5: 5, 6: 8 },
+                201: { 7: 3, 8: 6 }
+            },
+            4: { // Priya
+                101: { 1: 8, 2: 12, 3: 9, 4: 13 },
+                102: { 5: 10, 6: 15 },
+                201: { 7: 8, 8: 12 }
+            },
+            5: { // Emma
+                101: { 1: 6, 2: 9, 3: 7, 4: 10 },
+                102: { 5: 7, 6: 11 },
+                201: { 7: 5, 8: 9 }
+            }
+        };
 
-  // Logic to switch between tabs
-  function switchTab(view, el) {
-    document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
-    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    
-    el.classList.add('active');
-    
-    if(view === 'subjects') {
-      document.getElementById('subjectsSection').style.display = 'block';
-      document.getElementById('viewTitle').innerText = "Subject Management";
-      renderSubjects();
-    } else if(view === 'marks') {
-      document.getElementById('marksSection').style.display = 'block';
-      document.getElementById('viewTitle').innerText = "Per-Question Mark Entry";
-      renderMarkEntry();
-    } else if(view === 'risk') {
-      document.getElementById('riskSection').style.display = 'block';
-      document.getElementById('viewTitle').innerText = "Risk & Intervention";
-      renderRisk();
-    }
-  }
+        let consultations = [
+            { id: 1, learnerId: 3, teacherId: 2, subjectId: 1, topic: "Algebra Support", message: "Let's review quadratic equations", status: "pending" }
+        ];
 
-  function renderSubjects() {
-    const list = document.getElementById('subjectList');
-    list.innerHTML = subjects.map(s => `
-      <tr>
-        <td><strong>${s.name}</strong></td>
-        <td><span class="badge badge-blue">${s.assessments} Assessments</span></td>
-        <td><span class="badge ${s.risk === 'Low' ? 'badge-blue' : 'badge-red'}">${s.risk}</span></td>
-        <td><button class="btn btn-ghost"><i class="fas fa-ellipsis-v"></i></button></td>
-      </tr>
-    `).join('');
-  }
+        let resources = [
+            { id: 1, title: "🏫 School Tutoring Program", description: "Free peer tutoring every Tue/Thu 3-5pm in library.", type: "on-campus", targetTopic: "Algebra" },
+            { id: 2, title: "👨‍🏫 Local Tutors Network", description: "Qualified math tutors near you — subsidized rates available.", type: "community", targetTopic: "General" },
+            { id: 3, title: "📚 Khan Academy - Algebra", description: "Interactive video lessons and practice problems.", type: "digital", targetTopic: "Algebra" }
+        ];
 
-  function renderMarkEntry() {
-    const table = document.getElementById('markEntryTable');
-    
-    // Header
-    let html = `<thead><tr><th>Student Name</th>`;
-    questions.forEach(q => { html += `<th>${q.label}<br><span style="font-size:0.7rem">Max: ${q.max}</span></th>`; });
-    html += `<th>Total</th></tr></thead><tbody>`;
-    
-    // Rows
-    students.forEach(s => {
-      html += `<tr><td><strong>${s.name}</strong></td>`;
-      questions.forEach(q => {
-        html += `<td><input type="number" class="input-pill" placeholder="0" onchange="validateMark(this, ${q.max})"></td>`;
-      });
-      html += `<td id="total-${s.id}">0</td></tr>`;
-    });
-    
-    html += `</tbody>`;
-    table.innerHTML = html;
-  }
+        let adminRequests = []; // Resource requests from teachers
 
-  function validateMark(input, max) {
-    const val = parseInt(input.value);
-    input.classList.remove('cell-pass', 'cell-risk', 'cell-fail');
-    
-    if (val > max) {
-        input.value = max;
-        alert("Mark cannot exceed maximum!");
-    }
+        let currentUser = null;
 
-    const percent = (val / max) * 100;
-    if (percent >= 75) input.classList.add('cell-pass');
-    else if (percent >= 50) input.classList.add('cell-risk');
-    else if (percent < 50) input.classList.add('cell-fail');
-  }
+        // Helper functions
+        function getLearners() { return users.filter(u => u.role === 'learner' && u.status === 'active' && u.grade === 11); }
+        function getSubjectsByGrade(grade) { return subjects.filter(s => s.grade === grade); }
+        function getAssessmentsBySubject(subjectId) { return assessments.filter(a => a.subjectId === subjectId); }
+        function getQuestionsByAssessment(assessmentId) { return questions.filter(q => q.assessmentId === assessmentId); }
 
-  function renderRisk() {
-    const riskList = document.getElementById('riskList');
-    riskList.innerHTML = `
-      <div class="card" style="border-left: 5px solid var(--danger);">
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-          <div>
-            <strong>Thabo Nkosi</strong> <span class="badge badge-red">Critical Risk</span>
-            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">
-              Consistent failure in <strong>Algebra</strong> questions (Avg: 22%) across 3 assessments.
-            </p>
-          </div>
-          <button class="btn btn-primary" style="background:var(--text-main)">Create Intervention</button>
-        </div>
-      </div>
-    `;
-  }
+        function handleLogin() {
+            const email = document.getElementById('loginEmail').value;
+            const role = document.querySelector('.role-option.active').getAttribute('data-role');
+            const user = users.find(u => u.email === email && u.role === role && u.status === 'active');
+            if (user) {
+                currentUser = user;
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('appContainer').style.display = 'flex';
+                renderSidebar();
+                renderDashboard();
+            } else alert('Invalid credentials');
+        }
 
-  function saveAllMarks() {
-    alert("Data encrypted and pushed to ARIS Secure Ledger.");
-  }
+        function logout() { currentUser = null; document.getElementById('loginScreen').style.display = 'flex'; document.getElementById('appContainer').style.display = 'none'; }
+        function showNotifications() { alert("🔔 Notifications\n• New consultation requests\n• Resource recommendations pending"); }
+        function openSettings() { alert("⚙️ Settings\n• Theme: Professional\n• Notifications: On\n• Language: English\n• Grade Focus: 11"); }
 
-  // Init
-  renderSubjects();
-</script>
+        function openProfileModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal-overlay';
+            modal.innerHTML = `<div class="profile-modal"><div style="background:linear-gradient(135deg,var(--primary),var(--secondary)); width:70px;height:70px;border-radius:35px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;"><i class="fas fa-user-astronaut" style="font-size:2rem;color:white;"></i></div><h3>${currentUser.name}</h3><p style="color:var(--gray);">${currentUser.email}</p><p style="margin:1rem 0;">${currentUser.role === 'teacher' ? 'Mathematics & Sciences Educator' : currentUser.role === 'learner' ? `Grade ${currentUser.grade} Student` : 'System Administrator'}</p><button onclick="this.closest('.modal-overlay').remove()" style="padding:10px 24px;background:var(--primary);border:none;border-radius:40px;color:white;cursor:pointer;">Close</button></div>`;
+            document.body.appendChild(modal);
+            modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
+        }
 
+        function renderSidebar() {
+            let nav = [];
+            if (currentUser.role === 'admin') nav = [
+                { icon: "fa-chart-line", label: "Dashboard", id: "dashboard" },
+                { icon: "fa-users", label: "User Management", id: "users" },
+                { icon: "fa-calendar-check", label: "Consultations", id: "consultations" },
+                { icon: "fa-hand-holding-heart", label: "Resources", id: "resources" }
+            ];
+            else if (currentUser.role === 'teacher') nav = [
+                { icon: "fa-chart-line", label: "Dashboard", id: "dashboard" },
+                { icon: "fa-pen-ruler", label: "Mark Entry", id: "marks" },
+                { icon: "fa-chart-simple", label: "Risk Analysis", id: "risk" },
+                { icon: "fa-paper-plane", label: "Send Consultation", id: "sendConsult" },
+                { icon: "fa-calendar-check", label: "Consultations", id: "consultations" },
+                { icon: "fa-hand-holding-heart", label: "Resources", id: "resources" }
+            ];
+            else nav = [
+                { icon: "fa-chart-line", label: "Dashboard", id: "dashboard" },
+                { icon: "fa-chart-simple", label: "Subject Performance", id: "subjects" },
+                { icon: "fa-calendar-check", label: "Consultations", id: "consultations" },
+                { icon: "fa-hand-holding-heart", label: "Interventions", id: "resources" }
+            ];
+            document.getElementById('navItems').innerHTML = nav.map(item => `<div class="nav-item" onclick="switchTab('${item.id}')"><i class="fas ${item.icon}"></i><span>${item.label}</span></div>`).join('');
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            if (event?.target) event.target.closest('.nav-item')?.classList.add('active');
+            if (currentUser.role === 'admin') renderAdminTab(tabId);
+            else if (currentUser.role === 'teacher') renderTeacherTab(tabId);
+            else renderLearnerTab(tabId);
+        }
+        function renderDashboard() { switchTab('dashboard'); }
+
+        // ============ ADMIN ============
+        function renderAdminTab(tab) {
+            const content = document.getElementById('dynamicContent');
+            if (tab === 'dashboard') {
+                content.innerHTML = `
+                    <div class="hero-welcome"><h2>👋 Welcome, ${currentUser.name.split(' ')[0]}</h2><p>ARIS is actively monitoring ${getLearners().length} Grade 11 learners across ${subjects.length} subjects.</p></div>
+                    <div class="stats-grid"><div class="stat-card"><i class="fas fa-users" style="font-size:1.8rem;color:var(--primary)"></i><h2>${users.filter(u=>u.status==='active').length}</h2><p>Active Users</p></div><div class="stat-card"><i class="fas fa-chalkboard-user"></i><h2>${getLearners().length}</h2><p>Grade 11 Students</p></div><div class="stat-card"><i class="fas fa-calendar-check"></i><h2>${consultations.length}</h2><p>Consultations</p></div></div>
+                    <div class="about-section"><h3><i class="fas fa-graduation-cap"></i> About ARIS</h3><p>The Academic Risk Intelligence System identifies learning gaps at the per-question level across multiple subjects and assessments, enabling targeted intervention. Version 2.0 | Grade 11 Focus</p></div>
+                `;
+            } else if (tab === 'users') {
+                content.innerHTML = `<div class="card"><h3>User Directory</h3><table><thead><tr><th>Name</th><th>Role</th><th>Grade</th><th>Status</th><th>Action</th></tr></thead><tbody>${users.map(u => `<tr><td>${u.name}</td><td>${u.role}</td><td>${u.grade || '-'}</td><td><span class="badge ${u.status==='active'?'badge-success':'badge-danger'}">${u.status}</span></td><td><button onclick="toggleUserStatus(${u.id})" class="badge-warning" style="border:none;padding:4px 12px;border-radius:20px;cursor:pointer;">${u.status==='active'?'Deactivate':'Activate'}</button></td></tr>`).join('')}</tbody></table></div>`;
+            } else if (tab === 'consultations') {
+                content.innerHTML = `<div class="card"><h3>All Consultations</h3>${consultations.map(c => `<div class="consultation-card"><strong>${users.find(u=>u.id===c.learnerId)?.name}</strong><br>Topic: ${c.topic}<br>Status: ${c.status}</div>`).join('') || '<div class="empty-state">No consultations yet</div>'}</div>`;
+            } else if (tab === 'resources') renderResources(content);
+        }
+
+        // ============ TEACHER ============
+        let teacherSelectedSubject = 1;
+        let teacherSelectedAssessment = 101;
+
+        function renderTeacherTab(tab) {
+            const content = document.getElementById('dynamicContent');
+            if (tab === 'dashboard') {
+                content.innerHTML = `
+                    <div class="hero-welcome"><h2>📚 Hello, ${currentUser.name.split(' ')[0]}</h2><p>You are teaching ${currentUser.subjects?.length || 2} subjects. Track per-question performance below.</p></div>
+                    <div class="stats-grid"><div class="stat-card"><i class="fas fa-users"></i><h2>${getLearners().length}</h2><p>Grade 11 Students</p></div><div class="stat-card"><i class="fas fa-exclamation-triangle" style="color:var(--warning)"></i><h2>1</h2><p>At-Risk Students</p></div></div>
+                    <div class="about-section"><h3>📖 Teaching Dashboard</h3><p>Select a subject → assessment → enter marks per question → view topic-level risk insights.</p></div>
+                `;
+            } else if (tab === 'marks') {
+                const subjectsList = subjects.filter(s => currentUser.subjects?.includes(s.id));
+                content.innerHTML = `
+                    <div class="card">
+                        <h3>📝 Per-Question Mark Entry</h3>
+                        <div class="selector-group">
+                            <select id="teacherSubjectSelect" onchange="updateTeacherAssessmentSelect()">${subjectsList.map(s => `<option value="${s.id}" ${teacherSelectedSubject===s.id ? 'selected' : ''}>${s.name} (Grade ${s.grade})</option>`).join('')}</select>
+                            <select id="teacherAssessmentSelect" onchange="teacherSelectedAssessment=this.value; renderTeacherTab('marks')"></select>
+                        </div>
+                        <div id="teacherMarkTable"></div>
+                        <button class="login-btn" style="margin-top:1rem; width:auto; padding:10px 24px;" onclick="saveTeacherMarks()">Save All Marks</button>
+                    </div>
+                `;
+                updateTeacherAssessmentSelect();
+                renderTeacherMarkTable();
+            } else if (tab === 'risk') {
+                const subjectsList = subjects.filter(s => currentUser.subjects?.includes(s.id));
+                content.innerHTML = `<div class="card"><h3>⚠️ Risk Analysis by Subject</h3><div class="selector-group"><select id="riskSubjectSelect" onchange="renderTeacherRisk()">${subjectsList.map(s => `<option value="${s.id}">${s.name}</option>`).join('')}</select></div><div id="teacherRiskContent"></div></div>`;
+                renderTeacherRisk();
+            } else if (tab === 'sendConsult') {
+                content.innerHTML = `<div class="card"><h3>Send Consultation to Student</h3><select id="consultStudent" style="width:100%; padding:12px; margin-bottom:1rem; border-radius:12px;"><option value="">Select Learner</option>${getLearners().map(s=>`<option value="${s.id}">${s.name}</option>`).join('')}</select><input id="consultTopic" placeholder="Topic / Subject" style="width:100%; padding:12px; margin-bottom:1rem; border-radius:12px;"><textarea id="consultMsg" placeholder="Message to student..." style="width:100%; padding:12px; border-radius:12px;" rows="3"></textarea><button class="login-btn" style="margin-top:1rem;" onclick="sendConsultation()">Send Request →</button></div>`;
+            } else if (tab === 'consultations') {
+                const myConsults = consultations.filter(c=>c.teacherId===currentUser.id);
+                content.innerHTML = `<div class="card"><h3>My Consultations</h3>${myConsults.map(c=>`<div class="consultation-card"><strong>${users.find(u=>u.id===c.learnerId)?.name}</strong><br>${c.topic}<br><span class="badge-warning">${c.status}</span></div>`).join('') || '<div class="empty-state">No consultations sent yet</div>'}</div>`;
+            } else if (tab === 'resources') renderResources(content);
+        }
+
+        function updateTeacherAssessmentSelect() {
+            const subjectSelect = document.getElementById('teacherSubjectSelect');
+            if (subjectSelect) {
+                teacherSelectedSubject = parseInt(subjectSelect.value);
+                const assessmentsList = getAssessmentsBySubject(teacherSelectedSubject);
+                const assessSelect = document.getElementById('teacherAssessmentSelect');
+                if (assessSelect) {
+                    assessSelect.innerHTML = assessmentsList.map(a => `<option value="${a.id}" ${teacherSelectedAssessment===a.id ? 'selected' : ''}>${a.name} (${a.totalMarks} marks)</option>`).join('');
+                    if (assessmentsList.length) teacherSelectedAssessment = assessmentsList[0].id;
+                }
+            }
+            renderTeacherMarkTable();
+        }
+
+        function renderTeacherMarkTable() {
+            const container = document.getElementById('teacherMarkTable');
+            if (!container) return;
+            const assQuestions = getQuestionsByAssessment(teacherSelectedAssessment);
+            if (assQuestions.length === 0) { container.innerHTML = '<div class="empty-state">No questions configured for this assessment.</div>'; return; }
+            const learners = getLearners();
+            let html = `<table><thead><tr><th>Student</th>${assQuestions.map(q => `<th>${q.name}<br><span style="font-size:0.7rem;">${q.topic} (${q.marks})</span></th>`).join('')}<th>Total</th></tr></thead><tbody>`;
+            learners.forEach(s => {
+                let total = 0;
+                html += `<tr><td><strong>${s.name}</strong></td>`;
+                assQuestions.forEach(q => {
+                    const mark = studentMarks[s.id]?.[teacherSelectedAssessment]?.[q.id] || 0;
+                    total += mark;
+                    html += `<td><input type="number" class="mark-input" id="mark_${s.id}_${q.id}" value="${mark}" min="0" max="${q.marks}"></td>`;
+                });
+                html += `<td><strong>${total}</strong></td></tr>`;
+            });
+            html += `</tbody></table>`;
+            container.innerHTML = html;
+        }
+
+        function saveTeacherMarks() {
+            const assQuestions = getQuestionsByAssessment(teacherSelectedAssessment);
+            getLearners().forEach(s => {
+                if (!studentMarks[s.id]) studentMarks[s.id] = {};
+                if (!studentMarks[s.id][teacherSelectedAssessment]) studentMarks[s.id][teacherSelectedAssessment] = {};
+                assQuestions.forEach(q => {
+                    const input = document.getElementById(`mark_${s.id}_${q.id}`);
+                    if (input) studentMarks[s.id][teacherSelectedAssessment][q.id] = parseInt(input.value) || 0;
+                });
+            });
+            alert("Marks saved successfully!");
+            renderTeacherMarkTable();
+        }
+
+        function renderTeacherRisk() {
+            const container = document.getElementById('teacherRiskContent');
+            if (!container) return;
+            const subjectId = parseInt(document.getElementById('riskSubjectSelect')?.value || 1);
+            const subjectAssessments = getAssessmentsBySubject(subjectId);
+            const learners = getLearners();
+            let html = '';
+            learners.forEach(s => {
+                let topicScores = {};
+                let totalEarned = 0, totalPossible = 0;
+                subjectAssessments.forEach(ass => {
+                    const assQuestions = getQuestionsByAssessment(ass.id);
+                    assQuestions.forEach(q => {
+                        const mark = studentMarks[s.id]?.[ass.id]?.[q.id] || 0;
+                        const percent = (mark / q.marks) * 100;
+                        if (!topicScores[q.topic]) topicScores[q.topic] = { sum: 0, count: 0 };
+                        topicScores[q.topic].sum += percent;
+                        topicScores[q.topic].count++;
+                        totalEarned += mark;
+                        totalPossible += q.marks;
+                    });
+                });
+                const overallAvg = totalPossible > 0 ? (totalEarned / totalPossible) * 100 : 0;
+                const weakTopics = Object.entries(topicScores).filter(([_, data]) => (data.sum / data.count) < 50).map(([topic]) => topic);
+                html += `<div class="consultation-card"><strong>${s.name}</strong><div class="progress-bar mt-1"><div class="progress-fill" style="width:${overallAvg}%; background:${overallAvg<50?'var(--danger)':overallAvg<75?'var(--warning)':'var(--success)'}"></div></div><p>Overall: ${Math.round(overallAvg)}%</p>${weakTopics.length ? `<p class="badge-danger" style="display:inline-block; margin-top:0.5rem;">⚠️ Weak: ${weakTopics.join(', ')}</p>` : '<p class="badge-success" style="display:inline-block;">✅ On Track</p>'}</div>`;
+            });
+            container.innerHTML = html || '<div class="empty-state">No data available</div>';
+        }
+
+        // ============ LEARNER ============
+        function renderLearnerTab(tab) {
+            const content = document.getElementById('dynamicContent');
+            if (tab === 'dashboard') {
+                let totalEarned = 0, totalPossible = 0;
+                subjects.forEach(sub => {
+                    getAssessmentsBySubject(sub.id).forEach(ass => {
+                        getQuestionsByAssessment(ass.id).forEach(q => {
+                            totalEarned += studentMarks[currentUser.id]?.[ass.id]?.[q.id] || 0;
+                            totalPossible += q.marks;
+                        });
+                    });
+                });
+                const overall = totalPossible > 0 ? (totalEarned / totalPossible) * 100 : 0;
+                content.innerHTML = `
+                    <div class="hero-welcome"><h2>🎓 Welcome, ${currentUser.name.split(' ')[0]}!</h2><p>Grade ${currentUser.grade} Student · Real-time academic insights</p></div>
+                    <div class="stats-grid"><div class="stat-card"><i class="fas fa-chart-line"></i><h2>${Math.round(overall)}%</h2><p>Overall Average</p></div><div class="stat-card"><i class="fas fa-calendar-check"></i><h2>${consultations.filter(c=>c.learnerId===currentUser.id).length}</h2><p>Support Sessions</p></div></div>
+                    <div class="about-section"><h3><i class="fas fa-lightbulb"></i> Your Learning Journey</h3><p>ARIS tracks performance at the question level across all your subjects. Check the Subject Performance tab to see detailed topic-by-topic breakdowns.</p></div>
+                `;
+            } else if (tab === 'subjects') {
+                content.innerHTML = `<div class="card"><h3>📊 Subject Performance</h3><div id="learnerSubjectsContainer"></div></div>`;
+                renderLearnerSubjects();
+            } else if (tab === 'consultations') {
+                const myConsults = consultations.filter(c=>c.learnerId===currentUser.id);
+                content.innerHTML = `<div class="card"><h3>My Consultation History</h3>${myConsults.map(c=>`<div class="consultation-card"><strong>${c.topic}</strong><br>Message: ${c.message}<br>Status: ${c.status}</div>`).join('') || '<div class="empty-state">No consultations yet</div>'}</div>`;
+            } else if (tab === 'resources') renderResources(content);
+        }
+
+        function renderLearnerSubjects() {
+            const container = document.getElementById('learnerSubjectsContainer');
+            if (!container) return;
+            let html = '';
+            subjects.forEach(sub => {
+                const assessmentsList = getAssessmentsBySubject(sub.id);
+                html += `<div style="margin-bottom: 2rem;"><h4 style="margin-bottom: 1rem; color: var(--primary);">📘 ${sub.name}</h4>`;
+                assessmentsList.forEach(ass => {
+                    const assQuestions = getQuestionsByAssessment(ass.id);
+                    let assTotalEarned = 0, assTotalPossible = 0;
+                    let topicScores = {};
+                    assQuestions.forEach(q => {
+                        const mark = studentMarks[currentUser.id]?.[ass.id]?.[q.id] || 0;
+                        assTotalEarned += mark;
+                        assTotalPossible += q.marks;
+                        if (!topicScores[q.topic]) topicScores[q.topic] = { sum: 0, count: 0 };
+                        topicScores[q.topic].sum += (mark / q.marks) * 100;
+                        topicScores[q.topic].count++;
+                    });
+                    const assPercent = assTotalPossible > 0 ? (assTotalEarned / assTotalPossible) * 100 : 0;
+                    html += `<div class="consultation-card" style="margin-bottom:1rem;"><strong>${ass.name}</strong> — ${Math.round(assPercent)}%<div class="progress-bar"><div class="progress-fill" style="width:${assPercent}%; background:${assPercent<50?'var(--danger)':assPercent<75?'var(--warning)':'var(--success)'}"></div></div><div style="margin-top: 0.8rem; font-size: 0.85rem;">${Object.entries(topicScores).map(([topic, data]) => `<span class="badge ${(data.sum/data.count)<50?'badge-danger':'badge-success'}" style="margin-right:0.5rem;">${topic}: ${Math.round(data.sum/data.count)}%</span>`).join('')}</div></div>`;
+                });
+                html += `</div>`;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderResources(container) {
+            container.innerHTML = `<div class="card"><h3><i class="fas fa-hand-holding-heart"></i> Intervention & Tutoring Resources</h3>${resources.map(r => `<div class="resource-card" onclick="alert('Resource: ${r.title}\\n${r.description}')"><strong>${r.title}</strong><br>${r.description}<br><span class="badge-success">${r.type}</span></div>`).join('')}<p style="margin-top:1rem;">📍 Nearby tutors, school programs, and digital tools available.</p></div>`;
+        }
+
+        function sendConsultation() {
+            const studentId = parseInt(document.getElementById('consultStudent')?.value);
+            const topic = document.getElementById('consultTopic')?.value;
+            const msg = document.getElementById('consultMsg')?.value;
+            if (studentId && topic && msg) {
+                consultations.push({ id: Date.now(), learnerId: studentId, teacherId: currentUser.id, subjectId: teacherSelectedSubject, topic, message: msg, status: "pending" });
+                alert("Consultation sent to student!");
+                switchTab('consultations');
+            } else alert("Please fill all fields");
+        }
+
+        function toggleUserStatus(id) { const idx = users.findIndex(u=>u.id===id); if(idx!==-1) users[idx].status = users[idx].status==='active'?'inactive':'active'; renderAdminTab('users'); }
+
+        window.updateTeacherAssessmentSelect = updateTeacherAssessmentSelect;
+        window.renderTeacherMarkTable = renderTeacherMarkTable;
+        window.saveTeacherMarks = saveTeacherMarks;
+        window.renderTeacherRisk = renderTeacherRisk;
+        window.sendConsultation = sendConsultation;
+        window.toggleUserStatus = toggleUserStatus;
+        window.switchTab = switchTab;
+        window.logout = logout;
+        window.openProfileModal = openProfileModal;
+
+        document.querySelectorAll('.role-option').forEach(opt => {
+            opt.addEventListener('click', () => { document.querySelectorAll('.role-option').forEach(r=>r.classList.remove('active')); opt.classList.add('active'); });
+        });
+    </script>
 </body>
 </html>
-
-
